@@ -1,0 +1,48 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Registro Secreto">
+  <div style="max-width: 400px; margin: 100px auto; padding: 30px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+    <h2 style="margin-bottom: 20px; font-weight: bold; color: #333;">Crear Administrador</h2>
+    <input type="email" id="email" placeholder="Usa tu correo personal real" style="width:100%; margin-bottom:15px; padding:10px; border: 1px solid #ccc;">
+    <input type="password" id="pass" placeholder="Crea una contrasena segura" style="width:100%; margin-bottom:15px; padding:10px; border: 1px solid #ccc;">
+    <button id="btnRegistro" style="width:100%; padding:12px; background: #0056b3; color: white; border: none; cursor: pointer; font-weight: bold;">Forzar Creacion de Usuario</button>
+    <p id="msg" style="margin-top: 15px; font-weight: bold;"></p>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+    // Conexion directa a tu proyecto ya creado
+    const supabase = createClient(
+      'https://wuzjuyrezupwcyherizn.supabase.co',
+      'sb_publishable_uUVv1yeskjfqUkDif0uoMw_554N4x8o'
+    );
+
+    document.getElementById('btnRegistro').addEventListener('click', async () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('pass').value;
+      const msgEl = document.getElementById('msg');
+
+      if (!email || !password) {
+        msgEl.innerText = 'Llena ambos campos.';
+        msgEl.style.color = 'red';
+        return;
+      }
+
+      msgEl.innerText = 'Comunicando con la base de datos...';
+      msgEl.style.color = '#333';
+
+      const { error } = await supabase.auth.signUp({ email, password });
+
+      if (error) {
+        msgEl.innerText = 'Error: ' + error.message;
+        msgEl.style.color = 'red';
+      } else {
+        msgEl.innerText = 'Exito. Ve a tu bandeja de correo real y haz clic en el enlace de confirmacion de Supabase para activar la cuenta.';
+        msgEl.style.color = 'green';
+      }
+    });
+  </script>
+</MainLayout>

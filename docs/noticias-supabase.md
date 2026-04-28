@@ -1,66 +1,84 @@
-# Noticias: base recomendada
+# Noticias con Supabase y Cloudflare
 
-Esta guia deja clara la arquitectura recomendada para el modulo de noticias.
+Esta implementacion deja la web publica leyendo noticias reales desde Supabase y el panel admin protegido por credenciales del servidor.
 
-## Objetivo
+## Lo que ya hace el proyecto
 
-- Publico:
-  - ver ultimas noticias en la home
-  - ver todas las noticias en `/noticias/`
-- Admin:
-  - iniciar sesion
-  - crear noticias
-  - editar noticias
-  - eliminar noticias
-  - subir imagen o usar imagen por defecto
+- La home muestra las ultimas 3 noticias publicadas.
+- `/noticias/` muestra todas las noticias publicadas.
+- `/admin/noticias/` pide credenciales antes de mostrar el formulario.
+- El admin puede crear noticias con imagen opcional y eliminar noticias.
+- Si no se sube imagen, se usa la imagen predeterminada del proyecto.
 
-## Recomendacion tecnica
+## Variables necesarias
 
-Usar `Astro` como frontend y `Supabase` como backend.
+En `.env` local y en Cloudflare Pages > Settings > Environment variables:
 
-Esto permite:
+- `PUBLIC_SUPABASE_URL`
+- `PUBLIC_SUPABASE_ANON_KEY`
+- `PUBLIC_SUPABASE_STORAGE_BUCKET`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `ADMIN_USERNAME`
+- `ADMIN_PASSWORD`
 
-- cambiar el hosting del frontend sin rehacer el modulo
-- usar base de datos, auth y storage en un solo servicio
-- mantener separado el sitio publico del panel admin
+## SQL recomendado en Supabase
 
-## Tabla recomendada
+```sql
+create extension if not exists pgcrypto;
 
-Tabla: `noticias`
+create table if not exists public.noticias (
+  id uuid primary key default gen_random_uuid(),
+  titulo text not null,
+  contenido text not null,
+  imagen_url text,
+  fecha_publicacion date not null default current_date,
+  publicada boolean not null default true,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
 
-Campos:
+create or replace function public.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = now();
+  return new;
+end;
+$$;
 
-- `id`
-- `titulo`
-- `contenido`
-- `imagen_url`
-- `fecha_publicacion`
-- `publicada`
-- `created_at`
-- `updated_at`
+drop trigger if exists noticias_set_updated_at on public.noticias;
+create trigger noticias_set_updated_at
+before update on public.noticias
+for each row
+execute function public.set_updated_at();
 
-## Reglas sugeridas
+alter table public.noticias enable row level security;
 
-- El publico solo puede leer noticias con `publicada = true`
-- El admin autenticado puede crear, editar y eliminar
-- Si no hay imagen, usar la imagen predeterminada del proyecto
+create policy "lectura publica de noticias publicadas"
+on public.noticias
+for select
+to anon
+using (publicada = true);
+```
 
-## Flujo del frontend
+## Storage
 
-- Home:
-  - consulta ultimas 3 noticias publicadas
-- `/noticias/`
-  - consulta todas las noticias publicadas
-- `/admin/noticias/`
-  - lista noticias del admin
-  - formulario para crear
-  - acciones para editar y eliminar
+Crear un bucket publico llamado `noticias` en Supabase Storage.
 
-## Siguiente paso recomendado
+Si usas otro nombre, ajusta `PUBLIC_SUPABASE_STORAGE_BUCKET`.
 
-1. Crear proyecto en Supabase
-2. Crear tabla `noticias`
-3. Crear bucket de imagenes
-4. Configurar login admin
-5. Conectar Astro con variables de entorno
-6. Reemplazar el `noticiasSeed` vacio por lecturas reales desde Supabase
+## Cloudflare Pages
+
+El proyecto ahora usa renderizado de servidor para ocultar la clave de admin y la `service role`.
+
+En Cloudflare:
+
+1. Conecta el repo al proyecto Pages.
+2. Usa `npm run build` como build command.
+3. Usa `dist` como output directory.
+4. Carga todas las variables de entorno de la lista superior.
+
+## Nota de seguridad
+
+Este panel admin esta protegido con usuario y contrasena del servidor. Es suficiente para un sitio informativo pequeno, pero si luego quieres varios administradores o permisos mas finos, conviene migrar a Supabase Auth o Cloudflare Access.

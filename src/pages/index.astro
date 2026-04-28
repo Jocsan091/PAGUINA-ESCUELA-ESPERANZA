@@ -1,24 +1,14 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import Encabezado from "../componentes/encabezado/Encabezado.astro";
-import EncabezadoScroll from "../componentes/encabezado/EncabezadoScroll.astro";
-import MenuMovil from "../componentes/encabezado/MenuMovil.astro";
+import PaginaSitio from "../componentes/sitio/PaginaSitio.astro";
 import CarruselPrincipal from "../componentes/inicio/CarruselPrincipal.astro";
 import ResumenQuienesSomos from "../componentes/inicio/ResumenQuienesSomos.astro";
 import SeccionNoticiasInicio from "../componentes/inicio/SeccionNoticiasInicio.astro";
 import SeccionCirculos from "../componentes/inicio/SeccionCirculos.astro";
-import PiePagina from "../componentes/pie-pagina/PiePagina.astro";
-import ScriptsSitio from "../componentes/sistema/ScriptsSitio.astro";
 ---
 
-<MainLayout title="Escuela Esperanza">
-  <Encabezado />
-  <EncabezadoScroll />
-  <MenuMovil />
+<PaginaSitio title="Escuela Esperanza">
   <CarruselPrincipal />
   <ResumenQuienesSomos />
   <SeccionNoticiasInicio />
   <SeccionCirculos />
-  <PiePagina />
-  <ScriptsSitio />
-</MainLayout>
+</PaginaSitio>

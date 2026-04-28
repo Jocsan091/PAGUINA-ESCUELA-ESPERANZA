@@ -1,7 +1,8 @@
 export type Noticia = {
-  id: number;
+  id: string;
   fecha: string;
   imagen: string;
+  titulo: string;
   contenido: string;
   publicada: boolean;
 };

@@ -1,21 +1,11 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import Encabezado from "../componentes/encabezado/Encabezado.astro";
-import EncabezadoScroll from "../componentes/encabezado/EncabezadoScroll.astro";
-import MenuMovil from "../componentes/encabezado/MenuMovil.astro";
-import PiePagina from "../componentes/pie-pagina/PiePagina.astro";
-import ScriptsSitio from "../componentes/sistema/ScriptsSitio.astro";
+import PaginaSitio from "../componentes/sitio/PaginaSitio.astro";
 import { formatNewsDate, getNewsImage, listarNoticiasPublicas } from "../lib/noticias";
-import { rutas } from "../lib/rutas";
 
-const noticias = listarNoticiasPublicas();
+const noticias = await listarNoticiasPublicas();
 ---
 
-<MainLayout title="Noticias | Escuela Esperanza">
-  <Encabezado />
-  <EncabezadoScroll />
-  <MenuMovil />
-
+<PaginaSitio title="Noticias | Escuela Esperanza">
   <main class="internal-page">
     <section class="internal-hero">
       <div class="internal-hero-content">
@@ -49,6 +39,7 @@ const noticias = listarNoticiasPublicas();
                 </div>
 
                 <div class="news-page-content">
+                  <h2 class="news-page-title">{noticia.titulo}</h2>
                   <p>{noticia.contenido}</p>
                 </div>
               </article>
@@ -57,13 +48,9 @@ const noticias = listarNoticiasPublicas();
         ) : (
           <div class="news-empty-state news-empty-state--page">
             <p>Todavia no hay noticias cargadas para mostrar al publico.</p>
-            <a href={rutas.adminNoticias} class="home-news-button">Ir al panel admin</a>
           </div>
         )
       }
     </section>
   </main>
-
-  <PiePagina />
-  <ScriptsSitio />
-</MainLayout>
+</PaginaSitio>

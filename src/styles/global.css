@@ -2,13 +2,9 @@
 @import "./base/variables.css";
 @import "./base/base.css";
 
-@import "./componentes/encabezado.css";
-@import "./componentes/encabezado-scroll.css";
-@import "./componentes/menu-movil.css";
-@import "./componentes/carrusel-principal.css";
-@import "./componentes/seccion-circulos.css";
-@import "./componentes/noticias.css";
-@import "./componentes/pagina-interna.css";
+@import "./componentes/navegacion.css";
+@import "./componentes/inicio.css";
+@import "./componentes/paginas.css";
 @import "./componentes/pie-pagina.css";
 
 @import "./responsive.css";

@@ -1,18 +1,9 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import Encabezado from "../componentes/encabezado/Encabezado.astro";
-import EncabezadoScroll from "../componentes/encabezado/EncabezadoScroll.astro";
-import MenuMovil from "../componentes/encabezado/MenuMovil.astro";
-import PiePagina from "../componentes/pie-pagina/PiePagina.astro";
-import ScriptsSitio from "../componentes/sistema/ScriptsSitio.astro";
+import PaginaSitio from "../componentes/sitio/PaginaSitio.astro";
 import { quienesSomosDetalle } from "../data/siteData";
 ---
 
-<MainLayout title="Quienes Somos | Escuela Esperanza">
-  <Encabezado />
-  <EncabezadoScroll />
-  <MenuMovil />
-
+<PaginaSitio title="Quienes Somos | Escuela Esperanza">
   <main class="internal-page">
     <section class="internal-hero">
       <div class="internal-hero-content">
@@ -35,7 +26,4 @@ import { quienesSomosDetalle } from "../data/siteData";
       </div>
     </section>
   </main>
-
-  <PiePagina />
-  <ScriptsSitio />
-</MainLayout>
+</PaginaSitio>
