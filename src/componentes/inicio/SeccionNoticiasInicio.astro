@@ -1,5 +1,10 @@
 ---
 import { rutas } from "../../lib/rutas";
+<<<<<<< HEAD
+=======
+
+const ultimasNoticias = await listarUltimasNoticias(3);
+>>>>>>> rama-rescate
 ---
 
 <section class="home-news-section">
@@ -16,10 +21,20 @@ import { rutas } from "../../lib/rutas";
 
   <div class="home-news-grid" data-news-home-list></div>
 
+<<<<<<< HEAD
   <div class="news-empty-state" data-news-home-empty>
     <p>Aun no hay noticias publicadas.</p>
     <a href={rutas.noticias} class="home-news-button">Ir a noticias</a>
   </div>
+=======
+              <div class="news-card-content">
+                <h3 class="news-card-title">{noticia.titulo}</h3>
+                <p>{truncateNewsText(noticia.contenido, 165)}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+>>>>>>> rama-rescate
 
   <div class="home-news-actions" data-news-home-actions hidden>
     <a href={rutas.noticias} class="home-news-button">Ver mas</a>

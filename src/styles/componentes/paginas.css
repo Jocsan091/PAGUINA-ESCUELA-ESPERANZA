@@ -1,13 +1,75 @@
 /* =========================
-   NOTICIAS INICIO
+   PAGINAS INTERNAS
 ========================= */
-.home-news-section {
-  width: 100%;
-  padding: 40px 20px 40px;
-  background: #f7f7f7;
+.internal-page {
+  background: #fff;
 }
 
-.home-news-header,
+.internal-hero {
+  background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+  color: var(--blanco);
+  padding: 90px 20px 80px;
+}
+
+.internal-hero-content {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.internal-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.internal-hero h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.about-page-section {
+  padding: 80px 20px 90px;
+}
+
+.about-page-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.about-page-content p {
+  margin-bottom: 22px;
+  color: #555;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.about-page-media img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+}
+
+/* =========================
+   NOTICIAS
+========================= */
+.news-page-section,
+.admin-news-section {
+  padding: 80px 20px 90px;
+}
+
 .news-page-header,
 .admin-news-toolbar,
 .admin-news-list-header,
@@ -17,6 +79,7 @@
   margin: 0 auto 34px;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .home-news-kicker {
   display: inline-block;
   margin-bottom: 12px;
@@ -41,6 +104,8 @@
 }
 
 .home-news-header p,
+=======
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 .news-page-header p,
 .admin-news-help p,
 .admin-news-list-header p,
@@ -51,13 +116,12 @@
   line-height: 1.8;
 }
 
-.home-news-grid {
+.news-page-list {
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 34px;
 }
 
 .news-card,
@@ -84,6 +148,16 @@
 
 .news-card-image-wrap img {
   height: 250px;
+}
+
+.news-page-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+}
+
+.news-page-media img {
+  height: 100%;
+  min-height: 100%;
 }
 
 .news-date-badge {
@@ -123,6 +197,7 @@
   padding: 24px;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .news-card-content h3,
 .news-page-content h2,
 .admin-news-item-body h3 {
@@ -139,19 +214,22 @@
 
 .news-page-content h2 {
   font-size: 2.3rem;
+=======
+.news-card-title,
+.news-page-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 14px;
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 }
 
 .news-card-content p,
 .news-page-content p {
   color: #555;
   line-height: 1.85;
-}
-
-.home-news-actions {
-  width: 100%;
-  max-width: 1250px;
-  margin: 34px auto 0;
-  text-align: center;
 }
 
 .home-news-button,
@@ -200,6 +278,7 @@
   max-width: 900px;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .news-setup-state,
 .admin-status-box {
   margin-bottom: 30px;
@@ -322,18 +401,21 @@
   min-height: 100%;
 }
 
+=======
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 .news-date-badge--page {
   left: 20px;
   bottom: 20px;
 }
 
 /* =========================
-   ADMIN NOTICIAS
+   ADMIN
 ========================= */
 .admin-page {
   background: #f7f7f7;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .admin-news-section {
   padding: 80px 20px 90px;
 }
@@ -353,6 +435,8 @@
   margin-top: 22px;
 }
 
+=======
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 .admin-news-toolbar {
   display: flex;
   align-items: end;
@@ -360,11 +444,22 @@
   gap: 20px;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .admin-toolbar-actions,
 .admin-news-item-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+=======
+.admin-news-toolbar h2,
+.admin-news-list-header h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 3rem;
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 18px;
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 }
 
 .admin-secondary-link {
@@ -417,6 +512,7 @@
   resize: vertical;
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .admin-checkbox-field {
   display: flex;
   align-items: center;
@@ -430,6 +526,13 @@
   width: 18px;
   height: 18px;
   accent-color: var(--verde-principal);
+=======
+.admin-form-note {
+  margin-top: -6px;
+  margin-bottom: 22px;
+  color: #607465;
+  font-size: 0.95rem;
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 }
 
 .admin-form-actions {
@@ -523,8 +626,18 @@
   color: var(--verde-principal);
 }
 
+<<<<<<< HEAD:src/styles/componentes/noticias.css
 .admin-news-item-state {
   margin: 0 0 12px 12px;
+=======
+.admin-news-item-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 10px;
+>>>>>>> rama-rescate:src/styles/componentes/paginas.css
 }
 
 .admin-news-item-body p {

@@ -1,0 +1,20 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PiePagina from "../pie-pagina/PiePagina.astro";
+import ScriptsSitio from "../sistema/ScriptsSitio.astro";
+import Navegacion from "./Navegacion.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<MainLayout title={title} description={description}>
+  <Navegacion />
+  <slot />
+  <PiePagina />
+  <ScriptsSitio />
+</MainLayout>

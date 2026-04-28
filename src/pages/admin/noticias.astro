@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import MainLayout from "../../layouts/MainLayout.astro";
 import Encabezado from "../../componentes/encabezado/Encabezado.astro";
 import EncabezadoScroll from "../../componentes/encabezado/EncabezadoScroll.astro";
@@ -7,13 +8,27 @@ import PiePagina from "../../componentes/pie-pagina/PiePagina.astro";
 import NoticiasRuntime from "../../componentes/sistema/NoticiasRuntime.astro";
 import ScriptsSitio from "../../componentes/sistema/ScriptsSitio.astro";
 import { rutas } from "../../lib/rutas";
+=======
+import PaginaSitio from "../../componentes/sitio/PaginaSitio.astro";
+import {
+  getCurrentNewsDate,
+  formatNewsDate,
+  getNewsImage,
+  listarNoticiasAdmin
+} from "../../lib/noticias";
+import { isAdminAuthenticated, isAdminConfigured } from "../../lib/admin-auth";
+import { imagenNoticiaPredeterminada } from "../../data/noticias";
+import { rutas } from "../../lib/rutas";
+
+const adminConfigurado = isAdminConfigured();
+const adminAutenticado = await isAdminAuthenticated(Astro.cookies);
+const noticiasAdmin = adminAutenticado ? await listarNoticiasAdmin() : [];
+const accion = Astro.url.searchParams.get("status");
+const error = Astro.url.searchParams.get("error");
+>>>>>>> rama-rescate
 ---
 
-<MainLayout title="Admin Noticias | Escuela Esperanza">
-  <Encabezado />
-  <EncabezadoScroll />
-  <MenuMovil />
-
+<PaginaSitio title="Admin Noticias | Escuela Esperanza">
   <main class="internal-page admin-page">
     <section class="internal-hero">
       <div class="internal-hero-content">
@@ -23,6 +38,7 @@ import { rutas } from "../../lib/rutas";
     </section>
 
     <section class="admin-news-section">
+<<<<<<< HEAD
       <div class="news-setup-state news-setup-state--page" data-admin-setup hidden></div>
 
       <section class="admin-auth-card" data-admin-auth-card>
@@ -45,9 +61,30 @@ import { rutas } from "../../lib/rutas";
 
           <div class="admin-form-actions">
             <button type="submit" class="admin-primary-button">Ingresar</button>
-          </div>
-        </form>
+=======
+      <div class="admin-news-toolbar">
+        <h2>{adminAutenticado ? "Subir nueva noticia" : "Acceso administrador"}</h2>
+        <a href={rutas.noticias} class="admin-secondary-link">Ver noticias publicadas</a>
+      </div>
 
+      {
+        !adminConfigurado ? (
+          <div class="news-empty-state news-empty-state--page">
+            <p>
+              Falta configurar `ADMIN_USERNAME`, `ADMIN_PASSWORD` y
+              `SUPABASE_SERVICE_ROLE_KEY` en el entorno para habilitar este panel.
+            </p>
+>>>>>>> rama-rescate
+          </div>
+        ) : !adminAutenticado ? (
+          <div class="admin-news-layout">
+            <form class="admin-news-form" method="POST" action="/api/admin/login/">
+              <label class="admin-field">
+                <span>Usuario administrador</span>
+                <input name="username" type="text" autocomplete="username" required />
+              </label>
+
+<<<<<<< HEAD
         <p class="admin-login-message" data-admin-login-message></p>
       </section>
 
@@ -171,3 +208,161 @@ import { rutas } from "../../lib/rutas";
   <NoticiasRuntime />
   <ScriptsSitio />
 </MainLayout>
+=======
+              <label class="admin-field">
+                <span>Contrasena</span>
+                <input
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                />
+              </label>
+
+              {error === "credenciales" && (
+                <p class="admin-form-note">Las credenciales no coinciden.</p>
+              )}
+
+              <div class="admin-form-actions">
+                <button type="submit" class="admin-primary-button">Entrar al panel</button>
+              </div>
+            </form>
+
+            <aside class="admin-news-help">
+              <h3>Acceso restringido</h3>
+              <p>
+                Solo el administrador con credenciales validas puede crear o eliminar
+                noticias desde esta ruta.
+              </p>
+            </aside>
+          </div>
+        ) : (
+          <>
+            <div class="admin-news-layout">
+              <form
+                class="admin-news-form"
+                method="POST"
+                action="/api/admin/news/"
+                enctype="multipart/form-data"
+              >
+                <label class="admin-field">
+                  <span>Imagen de la noticia</span>
+                  <input name="imagen" type="file" accept="image/*" />
+                </label>
+
+                <label class="admin-field">
+                  <span>Titulo de la noticia</span>
+                  <input
+                    name="titulo"
+                    type="text"
+                    placeholder="Ejemplo: Feria cientifica de la Escuela Esperanza"
+                    required
+                  />
+                </label>
+
+                <label class="admin-field">
+                  <span>Texto de la noticia</span>
+                  <textarea
+                    name="contenido"
+                    rows="10"
+                    placeholder="Escribe aqui el contenido completo de la noticia"
+                    required
+                  ></textarea>
+                </label>
+
+                <label class="admin-field">
+                  <span>Publicar ahora</span>
+                  <input name="publicada" type="checkbox" value="true" checked />
+                </label>
+
+                <p class="admin-form-note">
+                  La fecha se guardara automaticamente con el dia de publicacion: {formatNewsDate(
+                    getCurrentNewsDate()
+                  )}.
+                </p>
+
+                {accion === "created" && (
+                  <p class="admin-form-note">La noticia fue publicada correctamente.</p>
+                )}
+
+                {error === "save" && (
+                  <p class="admin-form-note">No se pudo guardar la noticia.</p>
+                )}
+
+                <div class="admin-form-actions">
+                  <button type="submit" class="admin-primary-button">Subir nueva noticia</button>
+                </div>
+              </form>
+
+              <aside class="admin-news-help">
+                <h3>Vista previa estructural</h3>
+                <p>
+                  Si el administrador no carga una imagen, el sistema usa una imagen
+                  predeterminada para representar la noticia.
+                </p>
+
+                <div class="admin-default-image-card">
+                  <img src={imagenNoticiaPredeterminada} alt="Imagen predeterminada de noticia" />
+                  <div class="news-date-badge news-date-badge--page">
+                    <span class="news-date-icon">
+                      <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <span class="news-date-text">{formatNewsDate(getCurrentNewsDate())}</span>
+                  </div>
+                </div>
+
+                <form method="POST" action="/api/admin/logout/">
+                  <div class="admin-form-actions">
+                    <button type="submit" class="admin-secondary-link">Cerrar sesion</button>
+                  </div>
+                </form>
+              </aside>
+            </div>
+
+            <section class="admin-news-list-section">
+              <div class="admin-news-list-header">
+                <h2>Noticias cargadas</h2>
+                <p>
+                  Desde aqui el administrador puede revisar y eliminar noticias ya
+                  publicadas.
+                </p>
+              </div>
+
+              {
+                noticiasAdmin.length > 0 ? (
+                  <div class="admin-news-list">
+                    {noticiasAdmin.map((noticia) => (
+                      <article class="admin-news-item">
+                        <img src={getNewsImage(noticia.imagen)} alt="Imagen de noticia" />
+
+                        <div class="admin-news-item-body">
+                          <strong>{formatNewsDate(noticia.fecha)}</strong>
+                          <h3 class="admin-news-item-title">{noticia.titulo}</h3>
+                          <p>{noticia.contenido}</p>
+
+                          <div class="admin-news-item-actions">
+                            <form method="POST" action="/api/admin/news/delete/">
+                              <input type="hidden" name="id" value={noticia.id} />
+                              <button type="submit" class="admin-secondary-link">
+                                Eliminar
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="news-empty-state news-empty-state--page">
+                    <p>Aun no hay noticias creadas.</p>
+                  </div>
+                )
+              }
+            </section>
+          </>
+        )
+      }
+    </section>
+  </main>
+</PaginaSitio>
+>>>>>>> rama-rescate

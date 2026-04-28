@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 import MainLayout from "../layouts/MainLayout.astro";
 import Encabezado from "../componentes/encabezado/Encabezado.astro";
 import EncabezadoScroll from "../componentes/encabezado/EncabezadoScroll.astro";
@@ -7,13 +8,15 @@ import PiePagina from "../componentes/pie-pagina/PiePagina.astro";
 import NoticiasRuntime from "../componentes/sistema/NoticiasRuntime.astro";
 import ScriptsSitio from "../componentes/sistema/ScriptsSitio.astro";
 import { rutas } from "../lib/rutas";
+=======
+import PaginaSitio from "../componentes/sitio/PaginaSitio.astro";
+import { formatNewsDate, getNewsImage, listarNoticiasPublicas } from "../lib/noticias";
+
+const noticias = await listarNoticiasPublicas();
+>>>>>>> rama-rescate
 ---
 
-<MainLayout title="Noticias | Escuela Esperanza">
-  <Encabezado />
-  <EncabezadoScroll />
-  <MenuMovil />
-
+<PaginaSitio title="Noticias | Escuela Esperanza">
   <main class="internal-page">
     <section class="internal-hero">
       <div class="internal-hero-content">
@@ -37,6 +40,7 @@ import { rutas } from "../lib/rutas";
 
       <div class="news-page-list" data-news-public-list></div>
 
+<<<<<<< HEAD
       <div class="news-empty-state news-empty-state--page" data-news-public-empty>
         <p>Todavia no hay noticias cargadas para mostrar al publico.</p>
         <a href={rutas.adminNoticias} class="home-news-button">Ir al panel admin</a>
@@ -48,3 +52,21 @@ import { rutas } from "../lib/rutas";
   <NoticiasRuntime />
   <ScriptsSitio />
 </MainLayout>
+=======
+                <div class="news-page-content">
+                  <h2 class="news-page-title">{noticia.titulo}</h2>
+                  <p>{noticia.contenido}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="news-empty-state news-empty-state--page">
+            <p>Todavia no hay noticias cargadas para mostrar al publico.</p>
+          </div>
+        )
+      }
+    </section>
+  </main>
+</PaginaSitio>
+>>>>>>> rama-rescate
