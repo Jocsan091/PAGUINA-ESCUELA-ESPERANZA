@@ -6,8 +6,14 @@ const noticias = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/noticias" }),
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),
-    image: z.string().default("/images/slide3.png")
+    description: z.string().optional().default(""),
+    date: z.coerce.date().optional(),
+    image: z.string().default("/images/slide3.png"),
+    gallery: z
+      .array(z.union([z.string(), z.object({ foto_url: z.string() })]))
+      .optional()
+      .default([]),
+    video_url: z.string().optional().default("")
   })
 });
 

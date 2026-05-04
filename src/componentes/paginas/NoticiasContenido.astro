@@ -1,12 +1,21 @@
 ---
 import { render } from "astro:content";
-import { formatNewsDate, getNewsImage, listarNoticiasPublicas } from "../../lib/noticias";
+import {
+  formatNewsDate,
+  getGalleryImages,
+  getNewsDate,
+  getNewsImage,
+  getYoutubeEmbedUrl,
+  listarNoticiasPublicas
+} from "../../lib/noticias";
 
 const noticias = await listarNoticiasPublicas();
 const noticiasRenderizadas = await Promise.all(
   noticias.map(async (noticia) => ({
     noticia,
-    Content: (await render(noticia)).Content
+    Content: (await render(noticia)).Content,
+    galleryImages: getGalleryImages(noticia.data.gallery),
+    youtubeEmbedUrl: getYoutubeEmbedUrl(noticia.data.video_url)
   }))
 );
 ---
@@ -23,7 +32,7 @@ const noticiasRenderizadas = await Promise.all(
     {
       noticias.length > 0 ? (
         <div class="news-page-list">
-          {noticiasRenderizadas.map(({ noticia, Content }) => (
+          {noticiasRenderizadas.map(({ noticia, Content, galleryImages, youtubeEmbedUrl }) => (
             <article class="news-page-card">
               <div class="news-page-media">
                 <img src={getNewsImage(noticia.data.image)} alt={noticia.data.title} />
@@ -32,20 +41,42 @@ const noticiasRenderizadas = await Promise.all(
                   <span class="news-date-icon">
                     <i class="fa-solid fa-book-open"></i>
                   </span>
-                  <span class="news-date-text">{formatNewsDate(noticia.data.date)}</span>
+                  <span class="news-date-text">{formatNewsDate(getNewsDate(noticia))}</span>
                 </div>
               </div>
 
               <div class="news-page-content">
                 <h2 class="news-page-title">{noticia.data.title}</h2>
+                {noticia.data.description && (
+                  <p class="news-page-summary">{noticia.data.description}</p>
+                )}
                 <Content />
+
+                {galleryImages.length > 0 && (
+                  <div class="news-gallery">
+                    {galleryImages.map((image) => (
+                      <img src={image} alt={`Galeria de ${noticia.data.title}`} />
+                    ))}
+                  </div>
+                )}
+
+                {youtubeEmbedUrl && (
+                  <div class="news-video">
+                    <iframe
+                      src={youtubeEmbedUrl}
+                      title={`Video de ${noticia.data.title}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                )}
               </div>
             </article>
           ))}
         </div>
       ) : (
         <div class="news-empty-state news-empty-state--page">
-          <p>Todavia no hay noticias publicadas.</p>
+          <p>No hay noticias publicadas.</p>
         </div>
       )
     }

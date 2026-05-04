@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TU_USUARIO/TU_REPOSITORIO
+  repo: Jocsan091/PAGUINA-ESCUELA-ESPERANZA
   branch: main
 
 local_backend: true
@@ -20,17 +20,14 @@ collections:
       - label: "Titulo"
         name: "title"
         widget: "string"
-      - label: "Fecha"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        date_format: "YYYY-MM-DD"
-        time_format: false
+        required: true
+
       - label: "Imagen"
         name: "image"
         widget: "image"
-        required: false
-        default: "/images/slide3.png"
-      - label: "Contenido"
+        required: true
+
+      - label: "Texto"
         name: "body"
         widget: "markdown"
+        required: true

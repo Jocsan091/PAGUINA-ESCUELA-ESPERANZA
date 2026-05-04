@@ -1,9 +1,10 @@
 ---
 import {
   formatNewsDate,
+  getNewsDate,
+  getNewsSummary,
   getNewsImage,
   listarUltimasNoticias,
-  truncateNewsText
 } from "../../lib/noticias";
 import { rutas } from "../../lib/rutas";
 
@@ -29,13 +30,13 @@ const ultimasNoticias = await listarUltimasNoticias(3);
                   <span class="news-date-icon">
                     <i class="fa-solid fa-book-open"></i>
                   </span>
-                  <span class="news-date-text">{formatNewsDate(noticia.data.date)}</span>
+                  <span class="news-date-text">{formatNewsDate(getNewsDate(noticia))}</span>
                 </div>
               </div>
 
               <div class="news-card-content">
                 <h3 class="news-card-title">{noticia.data.title}</h3>
-                <p>{truncateNewsText(noticia.body, 165)}</p>
+                <p>{getNewsSummary(noticia)}</p>
               </div>
             </article>
           ))}
@@ -47,7 +48,7 @@ const ultimasNoticias = await listarUltimasNoticias(3);
       </>
     ) : (
       <div class="news-empty-state">
-        <p>Aun no hay noticias publicadas.</p>
+        <p>No hay noticias publicadas.</p>
         <a href={rutas.noticias} class="home-news-button">Ir a noticias</a>
       </div>
     )
