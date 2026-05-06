@@ -1,0 +1,24 @@
+---
+interface Props {
+  sectionHref?: string;
+  sectionLabel?: string;
+  sectionIcon?: string;
+}
+
+const {
+  sectionHref = "/",
+  sectionLabel = "Inicio",
+  sectionIcon = "fa-house"
+} = Astro.props;
+---
+
+<div class="internal-hero-actions">
+  <button type="button" class="internal-back-button" data-history-back>
+    <i class="fa-solid fa-arrow-left"></i>
+    Volver
+  </button>
+  <a href={sectionHref} class="internal-back-button">
+    <i class={`fa-solid ${sectionIcon}`}></i>
+    {sectionLabel}
+  </a>
+</div>

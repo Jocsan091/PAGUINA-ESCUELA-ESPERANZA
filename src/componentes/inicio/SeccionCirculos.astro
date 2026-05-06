@@ -58,7 +58,7 @@ import { rutas } from "../../lib/rutas";
 
     <div class="home-workshops-strip">
       {talleres.map((taller) => (
-        <a href={rutas.talleres} class="home-workshop-pill">{taller}</a>
+        <a href={taller.href} class="home-workshop-pill">{taller.titulo}</a>
       ))}
     </div>
   </div>

@@ -1,0 +1,26 @@
+---
+interface Item {
+  titulo: string;
+  slug: string;
+  href: string;
+}
+
+interface Props {
+  items: Item[];
+  activeSlug?: string;
+  label: string;
+}
+
+const { items, activeSlug = "", label } = Astro.props;
+---
+
+<nav class="section-switcher" aria-label={label}>
+  {items.map((item) => (
+    <a
+      href={item.href}
+      class:list={["section-switcher-link", { active: item.slug === activeSlug }]}
+    >
+      {item.titulo}
+    </a>
+  ))}
+</nav>

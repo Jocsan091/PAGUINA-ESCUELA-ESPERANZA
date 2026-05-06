@@ -1,5 +1,7 @@
 ---
-import type { directivas } from "../../data/siteData";
+import { directivas } from "../../data/siteData";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
+import NavegacionSecciones from "./NavegacionSecciones.astro";
 
 interface Props {
   directiva: (typeof directivas)[number];
@@ -13,11 +15,22 @@ const { directiva } = Astro.props;
     <div class="internal-hero-content">
       <span class="internal-kicker">Comunidad</span>
       <h1>{directiva.titulo}</h1>
+      <AccionesPaginaInterna
+        sectionHref="/directivas/"
+        sectionLabel="Directivas"
+        sectionIcon="fa-table-cells-large"
+      />
     </div>
   </section>
 
   <section class="directory-detail-section">
     <div class="directory-detail-container">
+      <NavegacionSecciones
+        items={directivas}
+        activeSlug={directiva.slug}
+        label="Navegar entre directivas"
+      />
+
       <div class="directory-members-grid">
         {directiva.integrantes.map((integrante) => (
           <article class="directory-member-card">

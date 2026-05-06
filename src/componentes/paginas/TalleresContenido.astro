@@ -1,5 +1,6 @@
 ---
-import { textoTemporal } from "../../data/siteData";
+import { talleres } from "../../data/siteData";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
 ---
 
 <main class="internal-page">
@@ -7,15 +8,21 @@ import { textoTemporal } from "../../data/siteData";
     <div class="internal-hero-content">
       <span class="internal-kicker">Talleres</span>
       <h1>Talleres</h1>
+      <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
     </div>
   </section>
 
   <section class="about-page-section">
     <div class="about-page-detail about-page-detail--compact">
-      <section class="about-info-block">
-        <p>{textoTemporal}</p>
-        <p>{textoTemporal}</p>
-      </section>
+      <div class="workshop-grid">
+        {talleres.map((taller) => (
+          <a href={taller.href} class="workshop-card workshop-card--link">
+            <h2>{taller.titulo}</h2>
+            <p>{taller.descripcion[0]}</p>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 </main>

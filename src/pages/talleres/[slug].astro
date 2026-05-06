@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import TallerDetalleContenido from "../../componentes/paginas/TallerDetalleContenido.astro";
+import { talleres } from "../../data/siteData";
+
+export function getStaticPaths() {
+  return talleres.map((taller) => ({
+    params: { slug: taller.slug },
+    props: { taller }
+  }));
+}
+
+const { taller } = Astro.props;
+---
+
+<MainLayout title={`${taller.titulo} | Escuela Esperanza`}>
+  <TallerDetalleContenido taller={taller} />
+</MainLayout>

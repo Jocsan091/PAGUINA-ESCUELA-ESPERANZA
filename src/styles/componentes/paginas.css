@@ -42,6 +42,33 @@
   line-height: 1.75;
 }
 
+.internal-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.internal-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 11px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--blanco);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.internal-back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .about-page-section,
 .news-page-section {
   padding: 80px 20px 90px;
@@ -202,6 +229,23 @@
   color: var(--verde-principal);
 }
 
+.workshop-card--link {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: inherit;
+}
+
+.workshop-card--link p {
+  margin: 14px 0 22px;
+}
+
+.workshop-card--link i {
+  align-self: flex-end;
+  color: var(--verde-principal);
+}
+
 .directory-detail-section {
   padding: 64px 20px 82px;
   background: var(--gris-muy-claro);
@@ -211,6 +255,35 @@
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
+}
+
+.section-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 42px;
+}
+
+.section-switcher-link {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  color: var(--verde-oscuro);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.section-switcher-link.active {
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+  color: var(--blanco);
 }
 
 .directory-members-grid {
@@ -463,7 +536,23 @@
 
 @media (max-width: 720px) {
   .internal-hero h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
+  }
+
+  .internal-hero p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .internal-hero-actions {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .internal-back-button {
+    min-height: 38px;
+    padding: 9px 12px;
+    font-size: 0.78rem;
   }
 
   .about-page-index,
@@ -473,39 +562,114 @@
     grid-template-columns: 1fr;
   }
 
+  .section-switcher {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .section-switcher-link {
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  .about-page-index {
+    gap: 10px;
+  }
+
+  .about-page-index a {
+    min-height: 46px;
+    padding: 12px 14px;
+    font-size: 0.86rem;
+  }
+
+  .about-page-detail {
+    margin-top: 38px;
+    gap: 18px;
+  }
+
+  .about-info-block {
+    padding: 18px;
+  }
+
+  .about-info-block h2 {
+    font-size: 1.38rem;
+    margin-bottom: 12px;
+  }
+
+  .about-info-block p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .workshop-grid,
+  .directory-grid {
+    gap: 12px;
+  }
+
+  .workshop-card,
+  .directory-card {
+    padding: 18px;
+  }
+
+  .workshop-card h2,
+  .workshop-card h3,
+  .directory-card h2,
+  .directory-card h3 {
+    font-size: 1.22rem;
+  }
+
+  .directory-card--link {
+    min-height: 136px;
+  }
+
+  .workshop-card--link {
+    min-height: 126px;
+  }
+
+  .directory-card--link p,
+  .workshop-card--link p {
+    margin: 10px 0 14px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
   .directory-detail-section {
-    padding: 46px 20px 62px;
+    padding: 36px 18px 52px;
   }
 
   .directory-members-grid {
-    gap: 38px;
+    gap: 28px;
   }
 
   .directory-member-photo {
-    width: 145px;
-    height: 145px;
-    margin-bottom: 18px;
+    width: 108px;
+    height: 108px;
+    margin-bottom: 14px;
+    border-width: 4px;
   }
 
   .directory-member-card {
-    max-width: 420px;
+    max-width: 340px;
   }
 
   .directory-member-card h2 {
-    font-size: 1.55rem;
+    font-size: 1.25rem;
   }
 
   .directory-member-card p {
-    max-width: 360px;
-    font-size: 0.95rem;
+    max-width: 320px;
+    font-size: 0.9rem;
+    line-height: 1.55;
   }
 
   .directory-description-block {
-    margin-top: 44px;
+    margin-top: 34px;
   }
 
   .about-page-media img {
-    height: 340px;
+    height: 240px;
   }
 
   .home-news-grid {
@@ -518,6 +682,25 @@
 
   .news-card-title,
   .news-page-title {
-    font-size: 1.7rem;
+    font-size: 1.28rem;
+  }
+
+  .news-page-list {
+    gap: 20px;
+  }
+
+  .news-page-media img {
+    height: 190px;
+    min-height: 190px;
+  }
+
+  .news-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .news-empty-state {
+    padding: 28px 20px;
   }
 }

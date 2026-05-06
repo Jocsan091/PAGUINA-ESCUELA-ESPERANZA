@@ -54,11 +54,36 @@ export const quienesSomosDetalle = {
 };
 
 export const talleres = [
-  "Taller Programacion y robotica",
-  "Taller de musica",
-  "Taller de danza",
-  "Taller de Voleibol",
-  "Taller de Futsal"
+  {
+    titulo: "Taller Programacion y robotica",
+    slug: "programacion-robotica",
+    href: `${rutas.talleres}programacion-robotica/`,
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Taller de musica",
+    slug: "musica",
+    href: `${rutas.talleres}musica/`,
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Taller de danza",
+    slug: "danza",
+    href: `${rutas.talleres}danza/`,
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Taller de Voleibol",
+    slug: "voleibol",
+    href: `${rutas.talleres}voleibol/`,
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Taller de Futsal",
+    slug: "futsal",
+    href: `${rutas.talleres}futsal/`,
+    descripcion: [textoTemporal, textoTemporal]
+  }
 ];
 
 export const directivas = [

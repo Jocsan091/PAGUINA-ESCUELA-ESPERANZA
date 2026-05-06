@@ -1,5 +1,6 @@
 ---
 import { quienesSomosDetalle } from "../../data/siteData";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
 ---
 
 <main class="internal-page">
@@ -7,6 +8,7 @@ import { quienesSomosDetalle } from "../../data/siteData";
     <div class="internal-hero-content">
       <span class="internal-kicker">Quienes somos</span>
       <h1>{quienesSomosDetalle.titulo}</h1>
+      <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
     </div>
   </section>
 
