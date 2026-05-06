@@ -1,5 +1,5 @@
 ---
-import { textoTemporal } from "../../data/siteData";
+import { directivas } from "../../data/siteData";
 ---
 
 <main class="internal-page">
@@ -12,10 +12,15 @@ import { textoTemporal } from "../../data/siteData";
 
   <section class="about-page-section">
     <div class="about-page-detail about-page-detail--compact">
-      <section class="about-info-block">
-        <p>{textoTemporal}</p>
-        <p>{textoTemporal}</p>
-      </section>
+      <div class="directory-grid">
+        {directivas.map((directiva) => (
+          <a href={directiva.href} class="directory-card directory-card--link">
+            <h2>{directiva.titulo}</h2>
+            <p>{directiva.descripcion[0]}</p>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 </main>

@@ -17,8 +17,8 @@ import { rutas } from "../../lib/rutas";
 
     <div class="home-directories-grid">
       {directivas.map((directiva) => (
-        <a href={rutas.directivas} class="home-directory-card">
-          <h3>{directiva}</h3>
+        <a href={directiva.href} class="home-directory-card">
+          <h3>{directiva.titulo}</h3>
           <i class="fa-solid fa-arrow-right"></i>
         </a>
       ))}

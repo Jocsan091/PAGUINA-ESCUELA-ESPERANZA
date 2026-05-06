@@ -1,0 +1,18 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import DirectivaDetalleContenido from "../../componentes/paginas/DirectivaDetalleContenido.astro";
+import { directivas } from "../../data/siteData";
+
+export function getStaticPaths() {
+  return directivas.map((directiva) => ({
+    params: { slug: directiva.slug },
+    props: { directiva }
+  }));
+}
+
+const { directiva } = Astro.props;
+---
+
+<MainLayout title={`${directiva.titulo} | Escuela Esperanza`}>
+  <DirectivaDetalleContenido directiva={directiva} />
+</MainLayout>

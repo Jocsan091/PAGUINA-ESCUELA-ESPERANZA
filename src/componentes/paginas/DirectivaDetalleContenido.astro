@@ -1,0 +1,44 @@
+---
+import type { directivas } from "../../data/siteData";
+
+interface Props {
+  directiva: (typeof directivas)[number];
+}
+
+const { directiva } = Astro.props;
+---
+
+<main class="internal-page">
+  <section class="internal-hero">
+    <div class="internal-hero-content">
+      <span class="internal-kicker">Comunidad</span>
+      <h1>{directiva.titulo}</h1>
+    </div>
+  </section>
+
+  <section class="directory-detail-section">
+    <div class="directory-detail-container">
+      <div class="directory-members-grid">
+        {directiva.integrantes.map((integrante) => (
+          <article class="directory-member-card">
+            <div class="directory-member-photo">
+              <img src={integrante.imagen} alt={integrante.nombre} />
+            </div>
+            <h2>
+              {integrante.nombre}
+              <span>({integrante.cargo})</span>
+            </h2>
+            <p>{integrante.descripcion}</p>
+          </article>
+        ))}
+      </div>
+
+      <section class="about-info-block directory-description-block">
+        <h2>{directiva.titulo}</h2>
+        {directiva.descripcion.map((parrafo) => (
+          <p>{parrafo}</p>
+        ))}
+      </section>
+    </div>
+  </section>
+</main>

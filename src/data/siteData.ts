@@ -62,9 +62,84 @@ export const talleres = [
 ];
 
 export const directivas = [
-  "Equipo directivo",
-  "Centro general de padres y apoderados",
-  "Centro general de alumnos"
+  {
+    titulo: "Equipo directivo",
+    slug: "equipo-directivo",
+    href: `${rutas.directivas}equipo-directivo/`,
+    integrantes: [
+      {
+        nombre: "Ines Arias Quintero",
+        cargo: "Directora",
+        imagen: "/images/DirectoraInesAriasQuintero.jpeg",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Juan Carlos",
+        cargo: "Inspector",
+        imagen: "/images/IspectorJuanCarlos.jpeg",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Teresa Rojas",
+        cargo: "Jefa UTP",
+        imagen: "/images/JefaUtpTeresaRojas.jpeg",
+        descripcion: textoTemporal
+      }
+    ],
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Centro general de padres y apoderados",
+    slug: "centro-padres",
+    href: `${rutas.directivas}centro-padres/`,
+    integrantes: [
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Presidencia",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Secretaria",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Tesoreria",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      }
+    ],
+    descripcion: [textoTemporal, textoTemporal]
+  },
+  {
+    titulo: "Centro general de alumnos",
+    slug: "centro-alumnos",
+    href: `${rutas.directivas}centro-alumnos/`,
+    integrantes: [
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Presidencia",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Secretaria",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      },
+      {
+        nombre: "Escuela Esperanza",
+        cargo: "Delegacion",
+        imagen: "/images/logo-escuela.png",
+        descripcion: textoTemporal
+      }
+    ],
+    descripcion: [textoTemporal, textoTemporal]
+  }
 ];
 
 export const seccionesInstitucionales = [
