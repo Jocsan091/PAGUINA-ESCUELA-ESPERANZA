@@ -1,0 +1,30 @@
+---
+import MainLayout from "../../../layouts/MainLayout.astro";
+import NoticiasContenido from "../../../componentes/paginas/NoticiasContenido.astro";
+import { getPaginatedNews, listarNoticiasPublicas, NOTICIAS_POR_PAGINA } from "../../../lib/noticias";
+
+export async function getStaticPaths() {
+  const noticias = await listarNoticiasPublicas();
+  const totalPages = Math.ceil(noticias.length / NOTICIAS_POR_PAGINA);
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, index) => {
+    const page = index + 2;
+    return {
+      params: { page: String(page) },
+      props: { page }
+    };
+  });
+}
+
+const { page } = Astro.props;
+const noticias = await listarNoticiasPublicas();
+const pagina = getPaginatedNews(noticias, page);
+---
+
+<MainLayout title={`Noticias - Pagina ${pagina.currentPage} | Escuela Esperanza`}>
+  <NoticiasContenido
+    noticias={pagina.items}
+    currentPage={pagina.currentPage}
+    totalPages={pagina.totalPages}
+  />
+</MainLayout>

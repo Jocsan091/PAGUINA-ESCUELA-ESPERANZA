@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 export type Noticia = CollectionEntry<"noticias">;
 
 const archivosNoticias = import.meta.glob("../content/noticias/**/*.md");
+export const NOTICIAS_POR_PAGINA = 10;
 
 export async function listarNoticiasPublicas() {
   if (Object.keys(archivosNoticias).length === 0) return [];
@@ -16,6 +17,35 @@ export async function listarNoticiasPublicas() {
 export async function listarUltimasNoticias(limit = 3) {
   const noticias = await listarNoticiasPublicas();
   return noticias.slice(0, limit);
+}
+
+export async function obtenerNoticiaPorSlug(slug: string) {
+  const noticias = await listarNoticiasPublicas();
+  return noticias.find((noticia) => getNewsSlug(noticia) === slug);
+}
+
+export function getNewsSlug(noticia: Noticia) {
+  return noticia.id.replace(/\.md$/, "");
+}
+
+export function getNewsUrl(noticia: Noticia) {
+  return `/noticias/${getNewsSlug(noticia)}/`;
+}
+
+export function getPaginatedNews(noticias: Noticia[], page = 1) {
+  const totalPages = Math.max(1, Math.ceil(noticias.length / NOTICIAS_POR_PAGINA));
+  const currentPage = Math.min(Math.max(page, 1), totalPages);
+  const start = (currentPage - 1) * NOTICIAS_POR_PAGINA;
+
+  return {
+    currentPage,
+    totalPages,
+    items: noticias.slice(start, start + NOTICIAS_POR_PAGINA)
+  };
+}
+
+export function getNewsPageUrl(page: number) {
+  return page <= 1 ? "/noticias/" : `/noticias/pagina/${page}/`;
 }
 
 export function getNewsImage(image?: string) {

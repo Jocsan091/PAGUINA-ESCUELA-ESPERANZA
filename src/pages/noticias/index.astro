@@ -1,0 +1,16 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import NoticiasContenido from "../../componentes/paginas/NoticiasContenido.astro";
+import { getPaginatedNews, listarNoticiasPublicas } from "../../lib/noticias";
+
+const noticias = await listarNoticiasPublicas();
+const pagina = getPaginatedNews(noticias, 1);
+---
+
+<MainLayout title="Noticias | Escuela Esperanza">
+  <NoticiasContenido
+    noticias={pagina.items}
+    currentPage={pagina.currentPage}
+    totalPages={pagina.totalPages}
+  />
+</MainLayout>

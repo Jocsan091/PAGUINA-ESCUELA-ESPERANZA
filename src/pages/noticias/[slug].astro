@@ -1,0 +1,24 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import NoticiaDetalleContenido from "../../componentes/paginas/NoticiaDetalleContenido.astro";
+import { getNewsSlug, listarNoticiasPublicas, type Noticia } from "../../lib/noticias";
+
+export async function getStaticPaths() {
+  const noticias = await listarNoticiasPublicas();
+
+  return noticias.map((noticia) => ({
+    params: { slug: getNewsSlug(noticia) },
+    props: { noticia }
+  }));
+}
+
+interface Props {
+  noticia: Noticia;
+}
+
+const { noticia } = Astro.props;
+---
+
+<MainLayout title={`${noticia.data.title} | Escuela Esperanza`}>
+  <NoticiaDetalleContenido noticia={noticia} />
+</MainLayout>

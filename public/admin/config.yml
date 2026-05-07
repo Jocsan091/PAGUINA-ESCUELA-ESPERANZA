@@ -2,6 +2,8 @@ backend:
   name: github
   repo: Jocsan091/PAGUINA-ESCUELA-ESPERANZA
   branch: main
+  base_url: https://paguina-escuela-esperanza.pages.dev
+  auth_endpoint: /api/auth
 
 local_backend: true
 
@@ -22,12 +24,47 @@ collections:
         widget: "string"
         required: true
 
-      - label: "Imagen"
+      - label: "Resumen corto"
+        name: "description"
+        widget: "text"
+        required: true
+
+      - label: "Fecha"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+        required: true
+
+      - label: "Imagen principal"
         name: "image"
         widget: "image"
         required: true
 
-      - label: "Texto"
+      - label: "Galeria de imagenes"
+        name: "gallery"
+        widget: "list"
+        required: false
+        summary: "{{fields.foto_url}}"
+        fields:
+          - label: "Foto"
+            name: "foto_url"
+            widget: "image"
+            required: true
+
+      - label: "Video de YouTube"
+        name: "video_url"
+        widget: "string"
+        required: false
+
+      - label: "Borrador"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        required: false
+
+      - label: "Texto completo"
         name: "body"
         widget: "markdown"
         required: true

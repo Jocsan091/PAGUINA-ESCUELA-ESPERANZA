@@ -1,23 +1,21 @@
 ---
-import { render } from "astro:content";
 import {
   formatNewsDate,
-  getGalleryImages,
   getNewsDate,
   getNewsImage,
-  getYoutubeEmbedUrl,
-  listarNoticiasPublicas
+  getNewsPageUrl,
+  getNewsSummary,
+  getNewsUrl,
+  type Noticia
 } from "../../lib/noticias";
 
-const noticias = await listarNoticiasPublicas();
-const noticiasRenderizadas = await Promise.all(
-  noticias.map(async (noticia) => ({
-    noticia,
-    Content: (await render(noticia)).Content,
-    galleryImages: getGalleryImages(noticia.data.gallery),
-    youtubeEmbedUrl: getYoutubeEmbedUrl(noticia.data.video_url)
-  }))
-);
+interface Props {
+  noticias: Noticia[];
+  currentPage: number;
+  totalPages: number;
+}
+
+const { noticias, currentPage, totalPages } = Astro.props;
 ---
 
 <main class="internal-page">
@@ -31,10 +29,11 @@ const noticiasRenderizadas = await Promise.all(
   <section class="news-page-section">
     {
       noticias.length > 0 ? (
-        <div class="news-page-list">
-          {noticiasRenderizadas.map(({ noticia, Content, galleryImages, youtubeEmbedUrl }) => (
-            <article class="news-page-card">
-              <div class="news-page-media">
+        <>
+          <div class="news-page-list">
+            {noticias.map((noticia) => (
+              <article class="news-page-card">
+                <a class="news-page-media" href={getNewsUrl(noticia)} aria-label={`Leer ${noticia.data.title}`}>
                 <img src={getNewsImage(noticia.data.image)} alt={noticia.data.title} />
 
                 <div class="news-date-badge news-date-badge--page">
@@ -43,37 +42,33 @@ const noticiasRenderizadas = await Promise.all(
                   </span>
                   <span class="news-date-text">{formatNewsDate(getNewsDate(noticia))}</span>
                 </div>
-              </div>
+                </a>
 
-              <div class="news-page-content">
-                <h2 class="news-page-title">{noticia.data.title}</h2>
-                {noticia.data.description && (
-                  <p class="news-page-summary">{noticia.data.description}</p>
-                )}
-                <Content />
+                <div class="news-page-content">
+                  <h2 class="news-page-title">
+                    <a href={getNewsUrl(noticia)}>{noticia.data.title}</a>
+                  </h2>
+                  <p class="news-page-summary">{getNewsSummary(noticia, 210)}</p>
+                  <a class="news-read-more" href={getNewsUrl(noticia)}>Leer noticia</a>
+                </div>
+              </article>
+            ))}
+          </div>
 
-                {galleryImages.length > 0 && (
-                  <div class="news-gallery">
-                    {galleryImages.map((image) => (
-                      <img src={image} alt={`Galeria de ${noticia.data.title}`} />
-                    ))}
-                  </div>
-                )}
-
-                {youtubeEmbedUrl && (
-                  <div class="news-video">
-                    <iframe
-                      src={youtubeEmbedUrl}
-                      title={`Video de ${noticia.data.title}`}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+          {totalPages > 1 && (
+            <nav class="news-pagination" aria-label="Paginacion de noticias">
+              {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+                <a
+                  href={getNewsPageUrl(page)}
+                  class:list={["news-pagination-link", { active: page === currentPage }]}
+                  aria-current={page === currentPage ? "page" : undefined}
+                >
+                  {page}
+                </a>
+              ))}
+            </nav>
+          )}
+        </>
       ) : (
         <div class="news-empty-state news-empty-state--page">
           <p>No hay noticias publicadas.</p>

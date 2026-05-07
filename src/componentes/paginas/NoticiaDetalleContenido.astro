@@ -1,0 +1,69 @@
+---
+import { render } from "astro:content";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
+import {
+  formatNewsDate,
+  getGalleryImages,
+  getNewsDate,
+  getNewsImage,
+  getYoutubeEmbedUrl,
+  type Noticia
+} from "../../lib/noticias";
+
+interface Props {
+  noticia: Noticia;
+}
+
+const { noticia } = Astro.props;
+const { Content } = await render(noticia);
+const galleryImages = getGalleryImages(noticia.data.gallery);
+const youtubeEmbedUrl = getYoutubeEmbedUrl(noticia.data.video_url);
+---
+
+<main class="internal-page">
+  <section class="internal-hero">
+    <div class="internal-hero-content">
+      <span class="internal-kicker">Noticias</span>
+      <h1>{noticia.data.title}</h1>
+      <p>{noticia.data.description}</p>
+      <AccionesPaginaInterna sectionLabel="Todas las noticias" sectionHref="/noticias/" sectionIcon="fa-newspaper" />
+    </div>
+  </section>
+
+  <article class="news-detail-section">
+    <div class="news-detail-container">
+      <div class="news-detail-main-image">
+        <img src={getNewsImage(noticia.data.image)} alt={noticia.data.title} />
+        <div class="news-date-badge news-date-badge--page">
+          <span class="news-date-icon">
+            <i class="fa-solid fa-book-open"></i>
+          </span>
+          <span class="news-date-text">{formatNewsDate(getNewsDate(noticia))}</span>
+        </div>
+      </div>
+
+      <div class="news-detail-content">
+        <Content />
+      </div>
+
+      {galleryImages.length > 0 && (
+        <section class="news-detail-gallery" aria-label="Galeria de imagenes">
+          {galleryImages.map((image) => (
+            <img src={image} alt={`Imagen de ${noticia.data.title}`} />
+          ))}
+        </section>
+      )}
+
+      {youtubeEmbedUrl && (
+        <div class="news-video news-detail-video">
+          <iframe
+            src={youtubeEmbedUrl}
+            title={`Video de ${noticia.data.title}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
+    </div>
+  </article>
+</main>

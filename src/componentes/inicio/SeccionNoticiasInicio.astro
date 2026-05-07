@@ -4,6 +4,7 @@ import {
   getNewsDate,
   getNewsSummary,
   getNewsImage,
+  getNewsUrl,
   listarUltimasNoticias,
 } from "../../lib/noticias";
 import { rutas } from "../../lib/rutas";
@@ -23,7 +24,7 @@ const ultimasNoticias = await listarUltimasNoticias(3);
         <div class="home-news-grid">
           {ultimasNoticias.map((noticia) => (
             <article class="news-card">
-              <div class="news-card-image-wrap">
+              <a class="news-card-image-wrap" href={getNewsUrl(noticia)} aria-label={`Leer ${noticia.data.title}`}>
                 <img src={getNewsImage(noticia.data.image)} alt={noticia.data.title} />
 
                 <div class="news-date-badge">
@@ -32,10 +33,12 @@ const ultimasNoticias = await listarUltimasNoticias(3);
                   </span>
                   <span class="news-date-text">{formatNewsDate(getNewsDate(noticia))}</span>
                 </div>
-              </div>
+              </a>
 
               <div class="news-card-content">
-                <h3 class="news-card-title">{noticia.data.title}</h3>
+                <h3 class="news-card-title">
+                  <a href={getNewsUrl(noticia)}>{noticia.data.title}</a>
+                </h3>
                 <p>{getNewsSummary(noticia)}</p>
               </div>
             </article>
