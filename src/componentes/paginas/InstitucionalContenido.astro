@@ -18,22 +18,30 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
         <p>{textoTemporal}</p>
       </section>
 
-      <section class="official-documents-grid" aria-label="Documentos oficiales">
-        {documentosOficiales.map((documento) => (
-          <a
-            class="official-document-card"
-            href={documento.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>
-              <i class="fa-solid fa-file-pdf"></i>
-            </span>
-            <h2>{documento.titulo}</h2>
-            <p>Descargar documento oficial en PDF.</p>
-          </a>
-        ))}
-      </section>
+      {
+        documentosOficiales.length > 0 ? (
+          <section class="official-documents-grid" aria-label="Documentos oficiales">
+            {documentosOficiales.map((documento) => (
+              <a
+                class="official-document-card"
+                href={documento.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <i class="fa-solid fa-file-pdf"></i>
+                </span>
+                <h2>{documento.titulo}</h2>
+                <p>Descargar documento oficial en PDF.</p>
+              </a>
+            ))}
+          </section>
+        ) : (
+          <div class="official-documents-empty official-documents-empty--page">
+            <p>Los documentos oficiales se publicaran proximamente.</p>
+          </div>
+        )
+      }
     </div>
   </section>
 </main>

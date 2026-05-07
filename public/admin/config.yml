@@ -77,6 +77,8 @@ collections:
             widget: "list"
             allow_add: true
             collapsed: false
+            required: false
+            default: []
             summary: "{{fields.titulo}}"
             fields:
               - label: "Titulo"

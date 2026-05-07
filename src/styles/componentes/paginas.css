@@ -216,6 +216,24 @@
   line-height: 1.55;
 }
 
+.official-documents-empty {
+  padding: 28px 24px;
+  background: var(--superficie);
+  border-left: 6px solid var(--verde-principal);
+  box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.official-documents-empty--page {
+  border: 1px solid var(--borde-suave);
+  border-left: 6px solid var(--verde-principal);
+}
+
+.official-documents-empty p {
+  color: var(--texto);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
 .workshop-grid,
 .directory-grid {
   display: grid;

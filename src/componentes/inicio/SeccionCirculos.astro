@@ -33,19 +33,27 @@ import { rutas } from "../../lib/rutas";
       <h2>Documentacion Oficial</h2>
     </div>
 
-    <div class="institutional-list">
-      {documentosOficiales.map((seccion) => (
-        <a
-          href={seccion.href}
-          class="institutional-row"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h3>{seccion.titulo}</h3>
-          <i class="fa-solid fa-file-pdf"></i>
-        </a>
-      ))}
-    </div>
+    {
+      documentosOficiales.length > 0 ? (
+        <div class="institutional-list">
+          {documentosOficiales.map((seccion) => (
+            <a
+              href={seccion.href}
+              class="institutional-row"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>{seccion.titulo}</h3>
+              <i class="fa-solid fa-file-pdf"></i>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="official-documents-empty">
+          <p>Los documentos oficiales se publicaran proximamente.</p>
+        </div>
+      )
+    }
   </div>
 </section>
 
