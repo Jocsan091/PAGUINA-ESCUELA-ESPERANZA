@@ -21,5 +21,24 @@
       "imagen": "/images/slide2.png"
     }
   ],
-  "personal": []
+  "personal": [
+    {
+      "nombre": "Escuela Esperanza",
+      "cargo": "Coordinacion PIE",
+      "imagen": "/images/logo-escuela.png",
+      "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+    },
+    {
+      "nombre": "Escuela Esperanza",
+      "cargo": "Equipo profesional",
+      "imagen": "/images/logo-escuela.png",
+      "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+    },
+    {
+      "nombre": "Escuela Esperanza",
+      "cargo": "Apoyo educativo",
+      "imagen": "/images/logo-escuela.png",
+      "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+    }
+  ]
 }

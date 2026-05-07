@@ -65,8 +65,8 @@ collections:
         widget: "markdown"
         required: true
 
-  - name: "configuracion"
-    label: "Configuracion"
+  - name: "documentacion_oficial"
+    label: "Documentacion Oficial"
     files:
       - label: "Documentacion Oficial"
         name: "documentos_oficiales"
@@ -99,44 +99,35 @@ collections:
                 media_folder: "public/documentos"
                 public_folder: "/documentos"
 
-      - label: "Directivas y perfiles"
-        name: "directivas_perfiles"
-        file: "src/data/directivas.json"
+  - name: "perfiles"
+    label: "Perfiles"
+    files:
+      - label: "Directiva"
+        name: "directiva"
+        file: "src/data/perfilesDirectivas.json"
         fields:
           - label: "Directivas"
             name: "directivas"
             widget: "list"
-            allow_add: true
+            allow_add: false
             collapsed: false
-            summary: "{{fields.titulo}}"
+            summary: "{{fields.slug}}"
             fields:
-              - label: "Titulo de la vista"
-                name: "titulo"
-                widget: "string"
-                required: true
-
               - label: "Identificador de URL"
                 name: "slug"
-                widget: "string"
-                required: true
-                hint: "Usa texto simple sin espacios, por ejemplo equipo-directivo."
+                widget: "hidden"
 
               - label: "Integrantes"
                 name: "integrantes"
                 widget: "list"
-                allow_add: true
+                allow_add: false
                 collapsed: false
                 required: false
                 default: []
-                summary: "{{fields.nombre}} - {{fields.cargo}}"
+                summary: "{{fields.nombre}}"
                 fields:
                   - label: "Nombre"
                     name: "nombre"
-                    widget: "string"
-                    required: true
-
-                  - label: "Cargo"
-                    name: "cargo"
                     widget: "string"
                     required: true
 
@@ -147,94 +138,21 @@ collections:
                     media_folder: "public/images/perfiles"
                     public_folder: "/images/perfiles"
 
-                  - label: "Descripcion del cargo"
-                    name: "descripcion"
-                    widget: "text"
-                    required: true
-
-              - label: "Texto de la seccion"
-                name: "descripcion"
-                widget: "list"
-                allow_add: true
-                collapsed: false
-                required: false
-                default: []
-                field:
-                  label: "Parrafo"
-                  name: "parrafo"
-                  widget: "text"
-
       - label: "PIE"
         name: "pie"
-        file: "src/data/pieContenido.json"
+        file: "src/data/perfilesPie.json"
         fields:
-          - label: "Titulo"
-            name: "titulo"
-            widget: "string"
-            required: true
-
-          - label: "Subtitulo"
-            name: "subtitulo"
-            widget: "string"
-            required: true
-
-          - label: "Introduccion"
-            name: "introduccion"
-            widget: "text"
-            required: true
-
-          - label: "Imagen principal"
-            name: "imagenPrincipal"
-            widget: "image"
-            required: true
-            media_folder: "public/images/pie"
-            public_folder: "/images/pie"
-
-          - label: "Secciones informativas"
-            name: "secciones"
-            widget: "list"
-            allow_add: true
-            collapsed: false
-            summary: "{{fields.titulo}}"
-            fields:
-              - label: "Titulo"
-                name: "titulo"
-                widget: "string"
-                required: true
-
-              - label: "Imagen"
-                name: "imagen"
-                widget: "image"
-                required: true
-                media_folder: "public/images/pie"
-                public_folder: "/images/pie"
-
-              - label: "Texto"
-                name: "texto"
-                widget: "list"
-                allow_add: true
-                collapsed: false
-                field:
-                  label: "Parrafo"
-                  name: "parrafo"
-                  widget: "text"
-
           - label: "Personal"
             name: "personal"
             widget: "list"
-            allow_add: true
+            allow_add: false
             collapsed: false
             required: false
             default: []
-            summary: "{{fields.nombre}} - {{fields.cargo}}"
+            summary: "{{fields.nombre}}"
             fields:
               - label: "Nombre"
                 name: "nombre"
-                widget: "string"
-                required: true
-
-              - label: "Cargo"
-                name: "cargo"
                 widget: "string"
                 required: true
 
@@ -244,8 +162,3 @@ collections:
                 required: true
                 media_folder: "public/images/perfiles"
                 public_folder: "/images/perfiles"
-
-              - label: "Descripcion"
-                name: "descripcion"
-                widget: "text"
-                required: true

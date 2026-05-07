@@ -1,6 +1,8 @@
 import { rutas } from "../lib/rutas";
 import directivasData from "./directivas.json";
 import documentosOficialesData from "./documentosOficiales.json";
+import perfilesDirectivasData from "./perfilesDirectivas.json";
+import perfilesPieData from "./perfilesPie.json";
 import pieContenidoData from "./pieContenido.json";
 
 export const menu = [
@@ -90,10 +92,19 @@ export const talleres = [
   }
 ];
 
-export const directivas = directivasData.directivas.map((directiva) => ({
-  ...directiva,
-  href: `${rutas.directivas}${directiva.slug}/`
-}));
+export const directivas = directivasData.directivas.map((directiva) => {
+  const perfiles = perfilesDirectivasData.directivas.find((grupo) => grupo.slug === directiva.slug);
+
+  return {
+    ...directiva,
+    href: `${rutas.directivas}${directiva.slug}/`,
+    integrantes: directiva.integrantes.map((integrante, index) => ({
+      ...integrante,
+      nombre: perfiles?.integrantes[index]?.nombre || integrante.nombre,
+      imagen: perfiles?.integrantes[index]?.imagen || integrante.imagen
+    }))
+  };
+});
 
 export const documentosOficiales = documentosOficialesData.documentos;
 
@@ -126,7 +137,14 @@ export const accesosCircularesInicio = [
   }
 ];
 
-export const pieContenido = pieContenidoData;
+export const pieContenido = {
+  ...pieContenidoData,
+  personal: pieContenidoData.personal.map((persona, index) => ({
+    ...persona,
+    nombre: perfilesPieData.personal[index]?.nombre || persona.nombre,
+    imagen: perfilesPieData.personal[index]?.imagen || persona.imagen
+  }))
+};
 
 export const seccionesInstitucionalesPagina = [
   { titulo: "Mision de la escuela", id: "mision" },

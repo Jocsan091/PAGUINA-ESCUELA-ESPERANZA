@@ -1,0 +1,55 @@
+{
+  "directivas": [
+    {
+      "slug": "equipo-directivo",
+      "integrantes": [
+        {
+          "nombre": "Ines Arias Quintero",
+          "imagen": "/images/DirectoraInesAriasQuintero.jpeg"
+        },
+        {
+          "nombre": "Juan Carlos Arriagada Daigre",
+          "imagen": "/images/IspectorJuanCarlos.jpeg"
+        },
+        {
+          "nombre": "Teresa Rojas Albretch",
+          "imagen": "/images/JefaUtpTeresaRojas.jpeg"
+        }
+      ]
+    },
+    {
+      "slug": "centro-padres",
+      "integrantes": [
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        }
+      ]
+    },
+    {
+      "slug": "centro-alumnos",
+      "integrantes": [
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "imagen": "/images/logo-escuela.png"
+        }
+      ]
+    }
+  ]
+}

@@ -31,7 +31,26 @@
     {
       "titulo": "Centro general de padres y apoderados",
       "slug": "centro-padres",
-      "integrantes": [],
+      "integrantes": [
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Presidencia",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Secretaria",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Tesoreria",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        }
+      ],
       "descripcion": [
         "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
       ]
@@ -39,7 +58,26 @@
     {
       "titulo": "Centro general de alumnos",
       "slug": "centro-alumnos",
-      "integrantes": [],
+      "integrantes": [
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Presidencia",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Secretaria",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Escuela Esperanza",
+          "cargo": "Delegacion",
+          "imagen": "/images/logo-escuela.png",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        }
+      ],
       "descripcion": [
         "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
       ]
