@@ -31,20 +31,28 @@ const { directiva } = Astro.props;
         label="Navegar entre directivas"
       />
 
-      <div class="directory-members-grid">
-        {directiva.integrantes.map((integrante) => (
-          <article class="directory-member-card">
-            <div class="directory-member-photo">
-              <img src={integrante.imagen} alt={integrante.nombre} />
-            </div>
-            <h2>
-              {integrante.nombre}
-              <span>({integrante.cargo})</span>
-            </h2>
-            <p>{integrante.descripcion}</p>
-          </article>
-        ))}
-      </div>
+      {
+        directiva.integrantes.length > 0 ? (
+          <div class="directory-members-grid">
+            {directiva.integrantes.map((integrante) => (
+              <article class="directory-member-card">
+                <div class="directory-member-photo">
+                  <img src={integrante.imagen} alt={integrante.nombre} />
+                </div>
+                <h2>
+                  {integrante.nombre}
+                  <span>({integrante.cargo})</span>
+                </h2>
+                <p>{integrante.descripcion}</p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="profiles-empty">
+            <p>Los perfiles de esta directiva se publicaran proximamente.</p>
+          </div>
+        )
+      }
 
       <section class="about-info-block directory-description-block">
         <h2>{directiva.titulo}</h2>

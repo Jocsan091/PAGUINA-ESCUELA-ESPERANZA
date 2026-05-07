@@ -1,0 +1,25 @@
+{
+  "titulo": "PIE",
+  "subtitulo": "Proyecto de integracion escolar",
+  "introduccion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza.",
+  "imagenPrincipal": "/images/slide11.png",
+  "secciones": [
+    {
+      "titulo": "Que somos?",
+      "texto": [
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza.",
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+      ],
+      "imagen": "/images/slide1.png"
+    },
+    {
+      "titulo": "Que hacemos?",
+      "texto": [
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza.",
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+      ],
+      "imagen": "/images/slide2.png"
+    }
+  ],
+  "personal": []
+}

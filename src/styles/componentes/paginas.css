@@ -412,6 +412,20 @@
   line-height: 1.7;
 }
 
+.profiles-empty {
+  padding: 28px 24px;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  border-left: 6px solid var(--verde-principal);
+  box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.profiles-empty p {
+  color: var(--texto);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
 .directory-description-block {
   margin-top: 56px;
 }

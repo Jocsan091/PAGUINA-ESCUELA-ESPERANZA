@@ -48,18 +48,26 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
           <h2>Personal</h2>
         </div>
 
-        <div class="pie-staff-grid">
-          {pieContenido.personal.map((persona) => (
-            <article class="pie-staff-card">
-              <div class="pie-staff-photo">
-                <img src={persona.imagen} alt={persona.nombre} />
-              </div>
-              <h3>{persona.nombre}</h3>
-              <span>{persona.cargo}</span>
-              <p>{persona.descripcion}</p>
-            </article>
-          ))}
-        </div>
+        {
+          pieContenido.personal.length > 0 ? (
+            <div class="pie-staff-grid">
+              {pieContenido.personal.map((persona) => (
+                <article class="pie-staff-card">
+                  <div class="pie-staff-photo">
+                    <img src={persona.imagen} alt={persona.nombre} />
+                  </div>
+                  <h3>{persona.nombre}</h3>
+                  <span>{persona.cargo}</span>
+                  <p>{persona.descripcion}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div class="profiles-empty">
+              <p>El personal PIE se publicara proximamente.</p>
+            </div>
+          )
+        }
       </section>
     </div>
   </section>

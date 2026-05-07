@@ -1,0 +1,48 @@
+{
+  "directivas": [
+    {
+      "titulo": "Equipo directivo",
+      "slug": "equipo-directivo",
+      "integrantes": [
+        {
+          "nombre": "Ines Arias Quintero",
+          "cargo": "Directora",
+          "imagen": "/images/DirectoraInesAriasQuintero.jpeg",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Juan Carlos Arriagada Daigre",
+          "cargo": "Inspector",
+          "imagen": "/images/IspectorJuanCarlos.jpeg",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        },
+        {
+          "nombre": "Teresa Rojas Albretch",
+          "cargo": "Jefa UTP",
+          "imagen": "/images/JefaUtpTeresaRojas.jpeg",
+          "descripcion": "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+        }
+      ],
+      "descripcion": [
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza.",
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+      ]
+    },
+    {
+      "titulo": "Centro general de padres y apoderados",
+      "slug": "centro-padres",
+      "integrantes": [],
+      "descripcion": [
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+      ]
+    },
+    {
+      "titulo": "Centro general de alumnos",
+      "slug": "centro-alumnos",
+      "integrantes": [],
+      "descripcion": [
+        "Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza Escuela Esperanza."
+      ]
+    }
+  ]
+}

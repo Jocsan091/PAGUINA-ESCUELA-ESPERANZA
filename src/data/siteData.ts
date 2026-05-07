@@ -1,5 +1,7 @@
 import { rutas } from "../lib/rutas";
+import directivasData from "./directivas.json";
 import documentosOficialesData from "./documentosOficiales.json";
+import pieContenidoData from "./pieContenido.json";
 
 export const menu = [
   { label: "INICIO", href: rutas.inicio },
@@ -88,86 +90,10 @@ export const talleres = [
   }
 ];
 
-export const directivas = [
-  {
-    titulo: "Equipo directivo",
-    slug: "equipo-directivo",
-    href: `${rutas.directivas}equipo-directivo/`,
-    integrantes: [
-      {
-        nombre: "Ines Arias Quintero",
-        cargo: "Directora",
-        imagen: "/images/DirectoraInesAriasQuintero.jpeg",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Juan Carlos Arriagada Daigre",
-        cargo: "Inspector",
-        imagen: "/images/IspectorJuanCarlos.jpeg",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Teresa Rojas Albretch",
-        cargo: "Jefa UTP",
-        imagen: "/images/JefaUtpTeresaRojas.jpeg",
-        descripcion: textoTemporal
-      }
-    ],
-    descripcion: [textoTemporal, textoTemporal]
-  },
-  {
-    titulo: "Centro general de padres y apoderados",
-    slug: "centro-padres",
-    href: `${rutas.directivas}centro-padres/`,
-    integrantes: [
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Presidencia",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Secretaria",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Tesoreria",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      }
-    ],
-    descripcion: [textoTemporal, textoTemporal]
-  },
-  {
-    titulo: "Centro general de alumnos",
-    slug: "centro-alumnos",
-    href: `${rutas.directivas}centro-alumnos/`,
-    integrantes: [
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Presidencia",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Secretaria",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      },
-      {
-        nombre: "Escuela Esperanza",
-        cargo: "Delegacion",
-        imagen: "/images/logo-escuela.png",
-        descripcion: textoTemporal
-      }
-    ],
-    descripcion: [textoTemporal, textoTemporal]
-  }
-];
+export const directivas = directivasData.directivas.map((directiva) => ({
+  ...directiva,
+  href: `${rutas.directivas}${directiva.slug}/`
+}));
 
 export const documentosOficiales = documentosOficialesData.documentos;
 
@@ -200,44 +126,7 @@ export const accesosCircularesInicio = [
   }
 ];
 
-export const pieContenido = {
-  titulo: "PIE",
-  subtitulo: "Proyecto de integracion escolar",
-  introduccion: textoTemporal,
-  imagenPrincipal: "/images/slide11.png",
-  secciones: [
-    {
-      titulo: "Que somos?",
-      texto: [textoTemporal, textoTemporal],
-      imagen: "/images/slide1.png"
-    },
-    {
-      titulo: "Que hacemos?",
-      texto: [textoTemporal, textoTemporal],
-      imagen: "/images/slide2.png"
-    }
-  ],
-  personal: [
-    {
-      nombre: "Escuela Esperanza",
-      cargo: "Coordinacion PIE",
-      imagen: "/images/logo-escuela.png",
-      descripcion: textoTemporal
-    },
-    {
-      nombre: "Escuela Esperanza",
-      cargo: "Equipo profesional",
-      imagen: "/images/logo-escuela.png",
-      descripcion: textoTemporal
-    },
-    {
-      nombre: "Escuela Esperanza",
-      cargo: "Apoyo educativo",
-      imagen: "/images/logo-escuela.png",
-      descripcion: textoTemporal
-    }
-  ]
-};
+export const pieContenido = pieContenidoData;
 
 export const seccionesInstitucionalesPagina = [
   { titulo: "Mision de la escuela", id: "mision" },
