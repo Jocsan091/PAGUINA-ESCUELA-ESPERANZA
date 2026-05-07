@@ -1,8 +1,8 @@
 ---
 import {
   directivas,
+  documentosOficiales,
   instagramInicio,
-  seccionesInstitucionales,
   talleres
 } from "../../data/siteData";
 import { rutas } from "../../lib/rutas";
@@ -30,11 +30,11 @@ import { rutas } from "../../lib/rutas";
   <div class="home-sections-container">
     <div class="home-section-heading">
       <span>Escuela</span>
-      <h2>Informacion institucional</h2>
+      <h2>Documentacion Oficial</h2>
     </div>
 
     <div class="institutional-list">
-      {seccionesInstitucionales.map((seccion) => (
+      {documentosOficiales.map((seccion) => (
         <a
           href={seccion.href}
           class="institutional-row"

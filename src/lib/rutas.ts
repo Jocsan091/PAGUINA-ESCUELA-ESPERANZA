@@ -3,6 +3,7 @@ export const rutas = {
   quienesSomos: "/quienes-somos/",
   noticias: "/noticias/",
   institucional: "/institucional/",
+  pie: "/pie/",
   talleres: "/talleres/",
   directivas: "/directivas/",
   admin: "/admin/"

@@ -1,0 +1,66 @@
+---
+import { pieContenido } from "../../data/siteData";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
+---
+
+<main class="internal-page">
+  <section class="internal-hero">
+    <div class="internal-hero-content">
+      <span class="internal-kicker">{pieContenido.subtitulo}</span>
+      <h1>{pieContenido.titulo}</h1>
+      <p>{pieContenido.introduccion}</p>
+      <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
+    </div>
+  </section>
+
+  <section class="pie-page-section">
+    <div class="pie-page-container">
+      <div class="pie-intro-panel">
+        <div class="pie-intro-copy">
+          <span>Proyecto de integracion escolar</span>
+          <h2>Acompanamiento y apoyo educativo</h2>
+          <p>{pieContenido.introduccion}</p>
+        </div>
+
+        <img src={pieContenido.imagenPrincipal} alt="Proyecto de integracion escolar" />
+      </div>
+
+      <div class="pie-info-grid">
+        {pieContenido.secciones.map((seccion, index) => (
+          <article class:list={["pie-info-block", { "pie-info-block--reverse": index % 2 === 1 }]}>
+            <div class="pie-info-media">
+              <img src={seccion.imagen} alt={seccion.titulo} />
+            </div>
+
+            <div class="pie-info-content">
+              <h2>{seccion.titulo}</h2>
+              {seccion.texto.map((parrafo) => (
+                <p>{parrafo}</p>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <section class="pie-staff-section">
+        <div class="pie-staff-heading">
+          <span>Equipo PIE</span>
+          <h2>Personal</h2>
+        </div>
+
+        <div class="pie-staff-grid">
+          {pieContenido.personal.map((persona) => (
+            <article class="pie-staff-card">
+              <div class="pie-staff-photo">
+                <img src={persona.imagen} alt={persona.nombre} />
+              </div>
+              <h3>{persona.nombre}</h3>
+              <span>{persona.cargo}</span>
+              <p>{persona.descripcion}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

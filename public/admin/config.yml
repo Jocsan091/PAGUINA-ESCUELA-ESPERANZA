@@ -24,11 +24,6 @@ collections:
         widget: "string"
         required: true
 
-      - label: "Resumen corto"
-        name: "description"
-        widget: "text"
-        required: true
-
       - label: "Fecha"
         name: "date"
         widget: "datetime"
@@ -68,3 +63,33 @@ collections:
         name: "body"
         widget: "markdown"
         required: true
+
+  - name: "configuracion"
+    label: "Configuracion"
+    files:
+      - label: "Documentacion Oficial"
+        name: "documentos_oficiales"
+        file: "src/data/documentosOficiales.json"
+        fields:
+          - label: "Documentos"
+            name: "documentos"
+            widget: "list"
+            summary: "{{fields.titulo}}"
+            fields:
+              - label: "Titulo"
+                name: "titulo"
+                widget: "string"
+                required: true
+
+              - label: "Identificador"
+                name: "id"
+                widget: "string"
+                required: true
+                hint: "Usa texto simple sin espacios, por ejemplo reglamento-interno."
+
+              - label: "Archivo PDF"
+                name: "href"
+                widget: "file"
+                required: true
+                media_folder: "public/documentos"
+                public_folder: "/documentos"

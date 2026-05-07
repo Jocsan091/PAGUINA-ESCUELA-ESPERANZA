@@ -1,8 +1,10 @@
 import { rutas } from "../lib/rutas";
+import documentosOficialesData from "./documentosOficiales.json";
 
 export const menu = [
   { label: "INICIO", href: rutas.inicio },
   { label: "QUIENES SOMOS", href: rutas.quienesSomos },
+  { label: "PIE", href: rutas.pie },
   { label: "TALLERES", href: rutas.talleres },
   { label: "DIRECTIVAS", href: rutas.directivas },
   { label: "NOTICIAS", href: rutas.noticias }
@@ -167,43 +169,7 @@ export const directivas = [
   }
 ];
 
-export const seccionesInstitucionales = [
-  {
-    titulo: "Nuestra historia",
-    id: "nuestra-historia",
-    href: "/documentos/nuestra-historia.pdf"
-  },
-  {
-    titulo: "Sellos educativos",
-    id: "sellos-educativos",
-    href: "/documentos/sellos-educativos.pdf"
-  },
-  {
-    titulo: "Nuestras actividades escolares",
-    id: "actividades-escolares",
-    href: "/documentos/actividades-escolares.pdf"
-  },
-  {
-    titulo: "PEI (Proyecto educativo institucional)",
-    id: "pei",
-    href: "/documentos/pei.pdf"
-  },
-  {
-    titulo: "Reglamento de evaluacion",
-    id: "reglamento-evaluacion",
-    href: "/documentos/reglamento-evaluacion.pdf"
-  },
-  {
-    titulo: "Reglamento interno",
-    id: "reglamento-interno",
-    href: "/documentos/reglamento-interno.pdf"
-  },
-  {
-    titulo: "RICE (Reglamento interno de convivencia escolar)",
-    id: "rice",
-    href: "/documentos/rice.pdf"
-  }
-];
+export const documentosOficiales = documentosOficialesData.documentos;
 
 export const instagramInicio = {
   cuenta: "@escuela_esperanzatalca",
@@ -234,8 +200,47 @@ export const accesosCircularesInicio = [
   }
 ];
 
+export const pieContenido = {
+  titulo: "PIE",
+  subtitulo: "Proyecto de integracion escolar",
+  introduccion: textoTemporal,
+  imagenPrincipal: "/images/slide11.png",
+  secciones: [
+    {
+      titulo: "Que somos?",
+      texto: [textoTemporal, textoTemporal],
+      imagen: "/images/slide1.png"
+    },
+    {
+      titulo: "Que hacemos?",
+      texto: [textoTemporal, textoTemporal],
+      imagen: "/images/slide2.png"
+    }
+  ],
+  personal: [
+    {
+      nombre: "Escuela Esperanza",
+      cargo: "Coordinacion PIE",
+      imagen: "/images/logo-escuela.png",
+      descripcion: textoTemporal
+    },
+    {
+      nombre: "Escuela Esperanza",
+      cargo: "Equipo profesional",
+      imagen: "/images/logo-escuela.png",
+      descripcion: textoTemporal
+    },
+    {
+      nombre: "Escuela Esperanza",
+      cargo: "Apoyo educativo",
+      imagen: "/images/logo-escuela.png",
+      descripcion: textoTemporal
+    }
+  ]
+};
+
 export const seccionesInstitucionalesPagina = [
   { titulo: "Mision de la escuela", id: "mision" },
   { titulo: "Vision de la escuela", id: "vision" },
-  ...seccionesInstitucionales
+  ...documentosOficiales
 ];

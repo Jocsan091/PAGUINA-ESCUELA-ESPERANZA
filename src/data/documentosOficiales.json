@@ -1,0 +1,39 @@
+{
+  "documentos": [
+    {
+      "titulo": "Nuestra historia",
+      "id": "nuestra-historia",
+      "href": "/documentos/nuestra-historia.pdf"
+    },
+    {
+      "titulo": "Sellos educativos",
+      "id": "sellos-educativos",
+      "href": "/documentos/sellos-educativos.pdf"
+    },
+    {
+      "titulo": "Nuestras actividades escolares",
+      "id": "actividades-escolares",
+      "href": "/documentos/actividades-escolares.pdf"
+    },
+    {
+      "titulo": "PEI (Proyecto educativo institucional)",
+      "id": "pei",
+      "href": "/documentos/pei.pdf"
+    },
+    {
+      "titulo": "Reglamento de evaluacion",
+      "id": "reglamento-evaluacion",
+      "href": "/documentos/reglamento-evaluacion.pdf"
+    },
+    {
+      "titulo": "Reglamento interno",
+      "id": "reglamento-interno",
+      "href": "/documentos/reglamento-interno.pdf"
+    },
+    {
+      "titulo": "RICE (Reglamento interno de convivencia escolar)",
+      "id": "rice",
+      "href": "/documentos/rice.pdf"
+    }
+  ]
+}

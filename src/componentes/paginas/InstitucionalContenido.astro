@@ -1,5 +1,5 @@
 ---
-import { textoTemporal } from "../../data/siteData";
+import { documentosOficiales, textoTemporal } from "../../data/siteData";
 import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
 ---
 
@@ -7,7 +7,7 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
   <section class="internal-hero">
     <div class="internal-hero-content">
       <span class="internal-kicker">Escuela</span>
-      <h1>Informacion institucional</h1>
+      <h1>Documentacion Oficial</h1>
       <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
     </div>
   </section>
@@ -16,7 +16,23 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
     <div class="about-page-detail about-page-detail--compact">
       <section class="about-info-block">
         <p>{textoTemporal}</p>
-        <p>{textoTemporal}</p>
+      </section>
+
+      <section class="official-documents-grid" aria-label="Documentos oficiales">
+        {documentosOficiales.map((documento) => (
+          <a
+            class="official-document-card"
+            href={documento.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>
+              <i class="fa-solid fa-file-pdf"></i>
+            </span>
+            <h2>{documento.titulo}</h2>
+            <p>Descargar documento oficial en PDF.</p>
+          </a>
+        ))}
       </section>
     </div>
   </section>

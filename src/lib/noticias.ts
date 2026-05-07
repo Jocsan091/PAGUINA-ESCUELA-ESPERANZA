@@ -63,7 +63,7 @@ export function getNewsDate(noticia: Noticia) {
 }
 
 export function getNewsSummary(noticia: Noticia, maxLength = 165) {
-  return truncateNewsText(noticia.data.description || noticia.body, maxLength);
+  return truncateNewsText(stripMarkdown(noticia.body), maxLength);
 }
 
 export function getGalleryImages(gallery: Noticia["data"]["gallery"]) {
@@ -106,4 +106,13 @@ export function formatNewsDate(date: Date) {
 export function truncateNewsText(text: string, maxLength = 150) {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength).trimEnd()}...`;
+}
+
+export function stripMarkdown(text: string) {
+  return text
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+    .replace(/\[[^\]]+\]\([^)]+\)/g, (match) => match.replace(/^\[|\]\([^)]+\)$/g, ""))
+    .replace(/[#>*_`~-]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
