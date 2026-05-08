@@ -1,5 +1,6 @@
 ---
 import { directivas } from "../../data/siteData";
+import { listarPerfilesPorGrupo } from "../../lib/perfiles";
 import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
 import NavegacionSecciones from "./NavegacionSecciones.astro";
 
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const { directiva } = Astro.props;
+const integrantes = await listarPerfilesPorGrupo(directiva.slug);
 ---
 
 <main class="internal-page">
@@ -32,9 +34,9 @@ const { directiva } = Astro.props;
       />
 
       {
-        directiva.integrantes.length > 0 ? (
+        integrantes.length > 0 ? (
           <div class="directory-members-grid">
-            {directiva.integrantes.map((integrante) => (
+            {integrantes.map((integrante) => (
               <article class="directory-member-card">
                 <div class="directory-member-photo">
                   <img src={integrante.imagen} alt={integrante.nombre} />

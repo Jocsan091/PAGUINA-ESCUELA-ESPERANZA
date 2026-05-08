@@ -1,6 +1,9 @@
 ---
 import { pieContenido } from "../../data/siteData";
+import { listarPerfilesPorGrupo } from "../../lib/perfiles";
 import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
+
+const personal = await listarPerfilesPorGrupo("pie");
 ---
 
 <main class="internal-page">
@@ -49,9 +52,9 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
         </div>
 
         {
-          pieContenido.personal.length > 0 ? (
+          personal.length > 0 ? (
             <div class="pie-staff-grid">
-              {pieContenido.personal.map((persona) => (
+              {personal.map((persona) => (
                 <article class="pie-staff-card">
                   <div class="pie-staff-photo">
                     <img src={persona.imagen} alt={persona.nombre} />

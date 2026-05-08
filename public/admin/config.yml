@@ -101,64 +101,60 @@ collections:
 
   - name: "perfiles"
     label: "Perfiles"
-    files:
-      - label: "Directiva"
-        name: "directiva"
-        file: "src/data/perfilesDirectivas.json"
-        fields:
-          - label: "Directivas"
-            name: "directivas"
-            widget: "list"
-            allow_add: false
-            collapsed: false
-            summary: "{{fields.slug}}"
-            fields:
-              - label: "Identificador de URL"
-                name: "slug"
-                widget: "hidden"
-
-              - label: "Integrantes"
-                name: "integrantes"
-                widget: "list"
-                allow_add: false
-                collapsed: false
-                required: false
-                default: []
-                summary: "{{fields.nombre}}"
-                fields:
-                  - label: "Nombre"
-                    name: "nombre"
-                    widget: "string"
-                    required: true
-
-                  - label: "Foto"
-                    name: "imagen"
-                    widget: "image"
-                    required: true
-                    media_folder: "public/images/perfiles"
-                    public_folder: "/images/perfiles"
-
+    folder: "src/content/perfiles"
+    create: false
+    delete: false
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{categoria}} / {{cargo}} - {{nombre}}"
+    sortable_fields: ["categoria", "orden", "cargo", "nombre"]
+    view_filters:
+      - label: "Directiva - Equipo directivo"
+        field: "grupo"
+        pattern: "equipo-directivo"
+      - label: "Directiva - Centro general de padres"
+        field: "grupo"
+        pattern: "centro-padres"
+      - label: "Directiva - Centro general de alumnos"
+        field: "grupo"
+        pattern: "centro-alumnos"
       - label: "PIE"
-        name: "pie"
-        file: "src/data/perfilesPie.json"
-        fields:
-          - label: "Personal"
-            name: "personal"
-            widget: "list"
-            allow_add: false
-            collapsed: false
-            required: false
-            default: []
-            summary: "{{fields.nombre}}"
-            fields:
-              - label: "Nombre"
-                name: "nombre"
-                widget: "string"
-                required: true
+        field: "grupo"
+        pattern: "pie"
+    fields:
+      - label: "Categoria"
+        name: "categoria"
+        widget: "hidden"
 
-              - label: "Foto"
-                name: "imagen"
-                widget: "image"
-                required: true
-                media_folder: "public/images/perfiles"
-                public_folder: "/images/perfiles"
+      - label: "Grupo"
+        name: "grupo"
+        widget: "hidden"
+
+      - label: "Orden"
+        name: "orden"
+        widget: "hidden"
+
+      - label: "Titulo interno"
+        name: "title"
+        widget: "hidden"
+
+      - label: "Nombre"
+        name: "nombre"
+        widget: "string"
+        required: true
+
+      - label: "Cargo"
+        name: "cargo"
+        widget: "string"
+        required: true
+
+      - label: "Foto"
+        name: "imagen"
+        widget: "image"
+        required: true
+        media_folder: "public/images/perfiles"
+        public_folder: "/images/perfiles"
+
+      - label: "Descripcion"
+        name: "descripcion"
+        widget: "hidden"

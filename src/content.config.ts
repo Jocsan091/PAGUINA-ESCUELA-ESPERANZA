@@ -18,4 +18,18 @@ const noticias = defineCollection({
   })
 });
 
-export const collections = { noticias };
+const perfiles = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/perfiles" }),
+  schema: z.object({
+    title: z.string(),
+    categoria: z.string(),
+    grupo: z.string(),
+    orden: z.number().default(1),
+    nombre: z.string(),
+    cargo: z.string(),
+    imagen: z.string().default("/images/logo-escuela.png"),
+    descripcion: z.string().default("")
+  })
+});
+
+export const collections = { noticias, perfiles };
