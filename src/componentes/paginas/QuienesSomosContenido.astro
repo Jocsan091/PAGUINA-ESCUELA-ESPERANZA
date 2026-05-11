@@ -13,16 +13,23 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
   </section>
 
   <section class="about-page-section">
-    <div class="about-page-container">
-      <div class="about-page-content about-page-content--framed">
+    <div class="about-page-container about-page-container--flow">
+      <div class="about-page-content about-page-content--framed about-page-content--flow">
         <h2>Quienes somos</h2>
-        {quienesSomosDetalle.texto.map((parrafo) => (
+
+        <div class="about-flow-top">
+          <div>
+            {quienesSomosDetalle.texto.slice(0, 2).map((parrafo) => (
+              <p>{parrafo}</p>
+            ))}
+          </div>
+
+          <img src={quienesSomosDetalle.imagen} alt="Escuela Esperanza" />
+        </div>
+
+        {quienesSomosDetalle.texto.slice(2).map((parrafo) => (
           <p>{parrafo}</p>
         ))}
-      </div>
-
-      <div class="about-page-media">
-        <img src={quienesSomosDetalle.imagen} alt="Escuela Esperanza" />
       </div>
     </div>
   </section>

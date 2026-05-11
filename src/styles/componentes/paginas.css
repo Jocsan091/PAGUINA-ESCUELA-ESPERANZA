@@ -89,6 +89,11 @@
   align-items: center;
 }
 
+.about-page-container--flow {
+  display: block;
+  max-width: 1100px;
+}
+
 .about-page-content p,
 .news-card-content p,
 .news-page-content p {
@@ -239,6 +244,26 @@
   background: var(--superficie);
   border-left: 6px solid var(--verde-principal);
   box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.about-page-content--flow {
+  max-width: none;
+}
+
+.about-flow-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 4px;
+}
+
+.about-flow-top img {
+  width: 100%;
+  height: 310px;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .official-documents-empty--page {
@@ -559,15 +584,19 @@
   box-shadow: 0 10px 26px var(--sombra-suave);
 }
 
+.department-page-section--banda {
+  background: linear-gradient(180deg, var(--gris-muy-claro) 0%, var(--superficie) 100%);
+}
+
 .department-page-container--banda .department-page-content {
-  background: var(--verde-oscuro);
-  border-color: var(--verde-oscuro);
+  background: var(--superficie);
+  border-color: var(--borde-suave);
   border-left-color: var(--amarillo);
 }
 
 .department-page-container--banda .department-page-content h2,
 .department-page-container--banda .department-page-content p {
-  color: var(--blanco);
+  color: var(--verde-oscuro);
 }
 
 .department-page-container--banda .department-page-content span {
@@ -630,6 +659,55 @@
 .contact-page-card a {
   overflow-wrap: anywhere;
   font-weight: 800;
+}
+
+.contact-map-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 0.66fr);
+  gap: 0;
+  overflow: hidden;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.contact-map-copy {
+  padding: 30px;
+  border-left: 6px solid var(--verde-principal);
+}
+
+.contact-map-copy span {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  background: var(--verde-principal);
+  color: var(--blanco);
+}
+
+.contact-map-copy h2 {
+  font-family: var(--fuente-titulos);
+  color: var(--verde-oscuro);
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 1.65rem;
+  margin-bottom: 12px;
+}
+
+.contact-map-copy p {
+  color: var(--texto);
+  line-height: 1.7;
+}
+
+.contact-map-panel iframe {
+  width: 100%;
+  min-height: 340px;
+  border: 0;
+  display: block;
 }
 
 /* =========================
@@ -1216,6 +1294,15 @@
 
   .department-page-container--banda .department-page-media {
     order: 0;
+  }
+
+  .about-flow-top,
+  .contact-map-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .about-flow-top img {
+    height: 230px;
   }
 
   .department-page-content,

@@ -1,5 +1,5 @@
 ---
-import { menu } from "../../data/siteData";
+import { contactoEscuela, menu } from "../../data/siteData";
 import { rutas } from "../../lib/rutas";
 ---
 
@@ -52,17 +52,22 @@ import { rutas } from "../../lib/rutas";
     <div class="contact-content">
       <div class="contact-item">
         <i class="fa-solid fa-paper-plane"></i>
-        <span>(71) 224 4049</span>
+        <span>{contactoEscuela.telefono}</span>
       </div>
 
       <div class="contact-item">
         <i class="fa-solid fa-envelope"></i>
-        <span>escuelaesperanza@daemtalca.cl</span>
+        <span>{contactoEscuela.correo}</span>
       </div>
 
       <div class="contact-item">
         <i class="fa-regular fa-clock"></i>
-        <span>Lunes a jueves: 08:30 - 17:00 hrs · Viernes: 08:30 - 14:00 hrs</span>
+        <span>{contactoEscuela.horario}</span>
+      </div>
+
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>{contactoEscuela.direccion}</span>
       </div>
     </div>
   </section>

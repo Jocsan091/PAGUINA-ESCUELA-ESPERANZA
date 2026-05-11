@@ -160,9 +160,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 42px;
+  gap: 24px;
   flex-wrap: wrap;
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
   text-transform: uppercase;
 }

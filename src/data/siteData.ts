@@ -120,6 +120,17 @@ export const directivas = directivasData.directivas.map((directiva) => ({
 
 export const documentosOficiales = documentosOficialesData.documentos;
 
+export const contactoEscuela = {
+  telefono: "(71) 224 4049",
+  telefonoHref: "tel:+56712244049",
+  correo: "escuelaesperanza@daemtalca.cl",
+  correoHref: "mailto:escuelaesperanza@daemtalca.cl",
+  horario: "Lunes a jueves: 08:30 - 17:00 hrs · Viernes: 08:30 - 14:00 hrs",
+  direccion: "12 1/2 Sur, Talca, Chile",
+  mapaSrc:
+    "https://www.google.com/maps?q=12%201%2F2%20Sur%2C%20Talca%2C%20Chile&output=embed"
+};
+
 export const instagramInicio = {
   cuenta: "@escuela_esperanzatalca",
   nombre: "Escuela Esperanza",
