@@ -8,15 +8,32 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
     <div class="internal-hero-content">
       <span class="internal-kicker">Talleres</span>
       <h1>Talleres</h1>
+      <p>
+        Cada taller es una oportunidad para descubrir talentos, compartir con otros estudiantes
+        y aprender haciendo en espacios creativos, deportivos y tecnologicos.
+      </p>
       <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
     </div>
   </section>
 
   <section class="about-page-section">
     <div class="about-page-detail about-page-detail--compact">
+      <section class="workshops-intro-panel">
+        <div>
+          <span>Aprender fuera del aula</span>
+          <h2>Explora, participa y encuentra tu taller</h2>
+        </div>
+        <p>
+          Los talleres fortalecen habilidades, amistades y confianza. Aqui los estudiantes pueden
+          probar nuevas actividades, desarrollar disciplina y disfrutar experiencias que enriquecen
+          su vida escolar.
+        </p>
+      </section>
+
       <div class="workshop-grid">
         {talleres.map((taller) => (
           <a href={taller.href} class="workshop-card workshop-card--link">
+            <img src={taller.imagen} alt={taller.titulo} />
             <h2>{taller.titulo}</h2>
             <p>{taller.descripcion[0]}</p>
             <i class="fa-solid fa-arrow-right"></i>

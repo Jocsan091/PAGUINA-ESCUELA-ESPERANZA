@@ -1,0 +1,62 @@
+---
+import { instagramInicio } from "../../data/siteData";
+---
+
+<section class="home-instagram-section">
+  <a
+    href={instagramInicio.href}
+    class="home-instagram-frame"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div class="home-instagram-topbar">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="home-instagram-profile">
+      <img src="/images/logo-escuela.png" alt="Logo Escuela Esperanza" />
+
+      <div class="home-instagram-profile-info">
+        <div class="home-instagram-profile-header">
+          <h2>{instagramInicio.cuenta}</h2>
+          <span>
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+          </span>
+        </div>
+
+        <div class="home-instagram-stats">
+          <strong>Publicaciones</strong>
+          <strong>Comunidad</strong>
+          <strong>Talca</strong>
+        </div>
+
+        <h3>{instagramInicio.nombre}</h3>
+        <p>Perfil oficial de Instagram</p>
+      </div>
+    </div>
+
+    <div class="home-instagram-tabs">
+      <span><i class="fa-solid fa-table-cells"></i> Publicaciones</span>
+      <span><i class="fa-solid fa-play"></i> Videos</span>
+    </div>
+
+    <div class="home-instagram-grid">
+      {instagramInicio.publicaciones.map((imagen) => (
+        <div class="home-instagram-post">
+          <img src={imagen} alt="Publicacion de Instagram de Escuela Esperanza" />
+          <div class="home-instagram-post-overlay">
+            <i class="fa-brands fa-instagram"></i>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="home-instagram-cta">
+      <span>Ver perfil en Instagram</span>
+      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </div>
+  </a>
+</section>

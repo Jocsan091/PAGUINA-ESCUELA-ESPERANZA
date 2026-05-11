@@ -2,9 +2,12 @@ export const rutas = {
   inicio: "/",
   quienesSomos: "/quienes-somos/",
   noticias: "/noticias/",
-  institucional: "/institucional/",
+  documentos: "/documentos-oficiales/",
   pie: "/pie/",
   talleres: "/talleres/",
   directivas: "/directivas/",
+  orientacion: "/departamento-orientacion/",
+  informatica: "/departamento-informatica/",
+  contacto: "/contacto/",
   admin: "/admin/"
 } as const;

@@ -4,12 +4,30 @@ import documentosOficialesData from "./documentosOficiales.json";
 import pieContenidoData from "./pieContenido.json";
 
 export const menu = [
-  { label: "INICIO", href: rutas.inicio },
-  { label: "QUIENES SOMOS", href: rutas.quienesSomos },
-  { label: "PIE", href: rutas.pie },
-  { label: "TALLERES", href: rutas.talleres },
-  { label: "DIRECTIVAS", href: rutas.directivas },
-  { label: "NOTICIAS", href: rutas.noticias }
+  { label: "Inicio", href: rutas.inicio },
+  {
+    label: "Nuestra Escuela",
+    href: rutas.quienesSomos,
+    children: [
+      { label: "Quienes somos", href: rutas.quienesSomos },
+      { label: "Directiva", href: rutas.directivas },
+      { label: "Programa de Integracion Escolar (PIE)", href: rutas.pie },
+      { label: "Departamento de orientacion", href: rutas.orientacion },
+      { label: "Departamento de informatica", href: rutas.informatica }
+    ]
+  },
+  {
+    label: "Documentos oficiales",
+    href: rutas.documentos,
+    children: documentosOficialesData.documentos.map((documento) => ({
+      label: documento.titulo,
+      href: documento.href,
+      external: true
+    }))
+  },
+  { label: "Talleres", href: rutas.talleres },
+  { label: "Noticias", href: rutas.noticias },
+  { label: "Contacto", href: rutas.contacto }
 ];
 
 export const slides = [
@@ -62,30 +80,35 @@ export const talleres = [
     titulo: "Taller Programacion y robotica",
     slug: "programacion-robotica",
     href: `${rutas.talleres}programacion-robotica/`,
+    imagen: "/images/slide3.png",
     descripcion: [textoTemporal, textoTemporal]
   },
   {
     titulo: "Taller de musica",
     slug: "musica",
     href: `${rutas.talleres}musica/`,
+    imagen: "/images/slide1.png",
     descripcion: [textoTemporal, textoTemporal]
   },
   {
     titulo: "Taller de danza",
     slug: "danza",
     href: `${rutas.talleres}danza/`,
+    imagen: "/images/slide2.png",
     descripcion: [textoTemporal, textoTemporal]
   },
   {
     titulo: "Taller de Voleibol",
     slug: "voleibol",
     href: `${rutas.talleres}voleibol/`,
+    imagen: "/images/slide11.png",
     descripcion: [textoTemporal, textoTemporal]
   },
   {
     titulo: "Taller de Futsal",
     slug: "futsal",
     href: `${rutas.talleres}futsal/`,
+    imagen: "/images/slide22.png",
     descripcion: [textoTemporal, textoTemporal]
   }
 ];
@@ -115,13 +138,13 @@ export const accesosCircularesInicio = [
   {
     titulo: "Mision de la escuela",
     texto: textoTemporal,
-    href: `${rutas.institucional}#mision`,
+    href: "#mision",
     icono: "fa-compass"
   },
   {
     titulo: "Vision de la escuela",
     texto: textoTemporal,
-    href: `${rutas.institucional}#vision`,
+    href: "#vision",
     icono: "fa-eye"
   }
 ];

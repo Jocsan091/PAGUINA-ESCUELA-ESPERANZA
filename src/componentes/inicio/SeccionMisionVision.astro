@@ -4,8 +4,8 @@ import { accesosCircularesInicio } from "../../data/siteData";
 
 <section class="features-section">
   <div class="features-container features-container--centered">
-    {accesosCircularesInicio.map((acceso) => (
-      <a href={acceso.href} class="feature-circle-card">
+    {accesosCircularesInicio.map((acceso, index) => (
+      <a id={index === 0 ? "mision" : "vision"} href={acceso.href} class="feature-circle-card">
         <div class="feature-circle">
           <i class={`fa-solid ${acceso.icono}`}></i>
         </div>

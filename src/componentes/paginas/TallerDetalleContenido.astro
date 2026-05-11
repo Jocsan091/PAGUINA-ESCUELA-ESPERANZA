@@ -32,10 +32,16 @@ const { taller } = Astro.props;
       />
 
       <section class="about-info-block">
-        <h2>{taller.titulo}</h2>
-        {taller.descripcion.map((parrafo) => (
-          <p>{parrafo}</p>
-        ))}
+        <div class="workshop-detail-layout">
+          <img src={taller.imagen} alt={taller.titulo} />
+
+          <div>
+            <h2>{taller.titulo}</h2>
+            {taller.descripcion.map((parrafo) => (
+              <p>{parrafo}</p>
+            ))}
+          </div>
+        </div>
       </section>
     </div>
   </section>

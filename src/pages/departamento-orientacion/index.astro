@@ -1,0 +1,17 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PaginaDepartamento from "../../componentes/paginas/PaginaDepartamento.astro";
+---
+
+<MainLayout title="Departamento de orientacion | Escuela Esperanza">
+  <PaginaDepartamento
+    kicker="Nuestra Escuela"
+    titulo="Departamento de orientacion"
+    imagen="/images/slide2.png"
+    icono="fa-compass"
+    parrafos={[
+      "El Departamento de orientacion acompana a los estudiantes en su desarrollo personal, social y escolar, fortaleciendo la convivencia, el bienestar y la toma de decisiones responsables.",
+      "Este espacio articula acciones con estudiantes, familias y equipos de aula para promover una comunidad educativa cercana, respetuosa y atenta a las necesidades de cada etapa."
+    ]}
+  />
+</MainLayout>

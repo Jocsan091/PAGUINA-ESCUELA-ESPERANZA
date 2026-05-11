@@ -1,0 +1,17 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PaginaDepartamento from "../../componentes/paginas/PaginaDepartamento.astro";
+---
+
+<MainLayout title="Departamento de informatica | Escuela Esperanza">
+  <PaginaDepartamento
+    kicker="Nuestra Escuela"
+    titulo="Departamento de informatica"
+    imagen="/images/slide3.png"
+    icono="fa-laptop-code"
+    parrafos={[
+      "El Departamento de informatica impulsa el uso responsable y creativo de la tecnologia dentro de la escuela, apoyando experiencias de aprendizaje conectadas con el mundo actual.",
+      "Desde el acompanamiento tecnico hasta las actividades digitales, esta area busca que estudiantes y docentes cuenten con herramientas utiles para aprender, crear y resolver problemas."
+    ]}
+  />
+</MainLayout>

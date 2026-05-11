@@ -19,7 +19,28 @@ import { rutas } from "../../lib/rutas";
       <div class="nav-content">
         <ul class="menu">
           {menu.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
+            <li class:list={["menu-item", { "menu-item--dropdown": item.children }]}>
+              <a href={item.href}>
+                {item.label}
+                {item.children && <i class="fa-solid fa-chevron-down"></i>}
+              </a>
+
+              {item.children && (
+                <ul class="submenu">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        target={child.external ? "_blank" : undefined}
+                        rel={child.external ? "noopener noreferrer" : undefined}
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
           ))}
         </ul>
 
@@ -71,7 +92,26 @@ import { rutas } from "../../lib/rutas";
 
     <nav class="scroll-nav" aria-label="Principal fija">
       {menu.map((item) => (
-        <a href={item.href}>{item.label}</a>
+        <div class:list={["scroll-nav-item", { "scroll-nav-item--dropdown": item.children }]}>
+          <a href={item.href}>
+            {item.label}
+            {item.children && <i class="fa-solid fa-chevron-down"></i>}
+          </a>
+
+          {item.children && (
+            <div class="scroll-submenu">
+              {item.children.map((child) => (
+                <a
+                  href={child.href}
+                  target={child.external ? "_blank" : undefined}
+                  rel={child.external ? "noopener noreferrer" : undefined}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
       ))}
     </nav>
 
@@ -111,7 +151,23 @@ import { rutas } from "../../lib/rutas";
 
   <nav class="mobile-menu-nav" aria-label="Menu movil">
     {menu.map((item) => (
-      <a href={item.href}>{item.label}</a>
+      item.children ? (
+        <details class="mobile-menu-group">
+          <summary>{item.label}</summary>
+          <a href={item.href}>{item.label}</a>
+          {item.children.map((child) => (
+            <a
+              href={child.href}
+              target={child.external ? "_blank" : undefined}
+              rel={child.external ? "noopener noreferrer" : undefined}
+            >
+              {child.label}
+            </a>
+          ))}
+        </details>
+      ) : (
+        <a href={item.href}>{item.label}</a>
+      )
     ))}
     <a href={rutas.admin}>ADMINISTRADOR</a>
   </nav>
