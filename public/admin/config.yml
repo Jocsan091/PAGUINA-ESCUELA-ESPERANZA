@@ -108,6 +108,11 @@ collections:
     nested:
       depth: 2
       summary: "{{title}}"
+      subfolders: false
+    meta:
+      path:
+        widget: "string"
+        label: "Ruta"
     extension: "md"
     format: "frontmatter"
     summary: "{{cargo}} - {{nombre}}"
