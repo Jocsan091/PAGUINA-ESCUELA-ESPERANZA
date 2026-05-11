@@ -113,6 +113,7 @@ collections:
       path:
         widget: "string"
         label: "Ruta"
+        index_file: "index"
     extension: "md"
     format: "frontmatter"
     summary: "{{cargo}} - {{nombre}}"
