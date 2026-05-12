@@ -7,10 +7,15 @@ interface Props {
   imagen: string;
   icono: string;
   parrafos: string[];
-  variante?: "panel" | "banda";
+  variante?: "orientacion" | "informatica";
 }
 
-const { kicker, titulo, imagen, icono, parrafos, variante = "panel" } = Astro.props;
+const { kicker, titulo, imagen, icono, parrafos, variante = "orientacion" } = Astro.props;
+const seccionesApoyo = [
+  { titulo: "Espacio de apoyo", icono: "fa-hand-holding-heart" },
+  { titulo: "Acompanamiento", icono: "fa-people-group" },
+  { titulo: "Informacion del departamento", icono: "fa-clipboard-list" }
+];
 ---
 
 <main class="internal-page">
@@ -24,15 +29,27 @@ const { kicker, titulo, imagen, icono, parrafos, variante = "panel" } = Astro.pr
 
   <section class:list={["department-page-section", `department-page-section--${variante}`]}>
     <div class:list={["department-page-container", `department-page-container--${variante}`]}>
-      <div class="department-page-media">
-        <img src={imagen} alt={titulo} />
+      <div class="department-page-main">
+        <div class="department-page-media">
+          <img src={imagen} alt={titulo} />
+        </div>
+
+        <div class="department-page-content">
+          <span><i class={`fa-solid ${icono}`}></i></span>
+          <h2>{titulo}</h2>
+          {parrafos.map((parrafo) => (
+            <p>{parrafo}</p>
+          ))}
+        </div>
       </div>
 
-      <div class="department-page-content">
-        <span><i class={`fa-solid ${icono}`}></i></span>
-        <h2>{titulo}</h2>
-        {parrafos.map((parrafo) => (
-          <p>{parrafo}</p>
+      <div class="department-support-grid">
+        {seccionesApoyo.map((seccion) => (
+          <article class="department-support-card">
+            <span><i class={`fa-solid ${seccion.icono}`}></i></span>
+            <h3>{seccion.titulo}</h3>
+            <p>{parrafos[0]}</p>
+          </article>
         ))}
       </div>
     </div>

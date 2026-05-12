@@ -308,6 +308,33 @@
   scroll-margin-top: 120px;
 }
 
+.directory-card-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: var(--verde-principal);
+  color: var(--blanco);
+  font-size: 1.2rem;
+}
+
+.directory-card--accent-2 {
+  background: var(--superficie);
+  border-left: 6px solid var(--amarillo);
+}
+
+.directory-card--accent-2 .directory-card-icon {
+  background: var(--amarillo);
+  color: var(--verde-oscuro);
+}
+
+.directory-card--accent-3 {
+  background: linear-gradient(180deg, var(--superficie), var(--gris-muy-claro));
+  border-top: 6px solid var(--verde-principal);
+}
+
 .directory-card ul {
   display: grid;
   gap: 8px;
@@ -319,8 +346,9 @@
   display: flex;
   min-height: 210px;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: inherit;
+  box-shadow: 0 10px 26px var(--sombra-suave);
 }
 
 .directory-card--link p {
@@ -329,8 +357,19 @@
   line-height: 1.7;
 }
 
-.directory-card--link i {
-  align-self: flex-end;
+.directory-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  align-self: flex-start;
+  color: var(--verde-principal);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.directory-card-action i {
   color: var(--verde-principal);
 }
 
@@ -553,16 +592,21 @@
 
 .department-page-container {
   display: grid;
+  gap: 28px;
+}
+
+.department-page-main {
+  display: grid;
   grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
   gap: 34px;
   align-items: center;
 }
 
-.department-page-container--banda {
+.department-page-container--informatica .department-page-main {
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
 }
 
-.department-page-container--banda .department-page-media {
+.department-page-container--informatica .department-page-media {
   order: 2;
 }
 
@@ -584,22 +628,22 @@
   box-shadow: 0 10px 26px var(--sombra-suave);
 }
 
-.department-page-section--banda {
+.department-page-section--informatica {
   background: linear-gradient(180deg, var(--gris-muy-claro) 0%, var(--superficie) 100%);
 }
 
-.department-page-container--banda .department-page-content {
+.department-page-container--informatica .department-page-content {
   background: var(--superficie);
   border-color: var(--borde-suave);
   border-left-color: var(--amarillo);
 }
 
-.department-page-container--banda .department-page-content h2,
-.department-page-container--banda .department-page-content p {
+.department-page-container--informatica .department-page-content h2,
+.department-page-container--informatica .department-page-content p {
   color: var(--verde-oscuro);
 }
 
-.department-page-container--banda .department-page-content span {
+.department-page-container--informatica .department-page-content span {
   background: var(--amarillo);
   color: var(--verde-oscuro);
 }
@@ -638,6 +682,115 @@
 }
 
 .department-page-content p + p {
+  margin-top: 12px;
+}
+
+.department-support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.department-support-card {
+  min-height: 220px;
+  padding: 24px;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  border-top: 6px solid var(--verde-principal);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.department-page-container--informatica .department-support-card {
+  border-top-color: var(--amarillo);
+}
+
+.department-support-card span {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: var(--gris-muy-claro);
+  color: var(--verde-principal);
+}
+
+.department-support-card h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.department-support-card p {
+  color: var(--texto);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.mission-page-section {
+  padding: 70px 20px 90px;
+  background: var(--gris-muy-claro);
+}
+
+.mission-page-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.mission-panel {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 24px;
+  padding: 30px;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  border-left: 6px solid var(--verde-principal);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px var(--sombra-suave);
+}
+
+.mission-panel:nth-child(2) {
+  border-left-color: var(--amarillo);
+}
+
+.mission-panel-icon {
+  width: 92px;
+  height: 92px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--verde-principal);
+  color: var(--blanco);
+  font-size: 2.05rem;
+}
+
+.mission-panel:nth-child(2) .mission-panel-icon {
+  background: var(--amarillo);
+  color: var(--verde-oscuro);
+}
+
+.mission-panel-content h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 2.35rem;
+  line-height: 0.98;
+  color: var(--verde-oscuro);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.mission-panel-content p {
+  color: var(--texto);
+  line-height: 1.75;
+}
+
+.mission-panel-content p + p {
   margin-top: 12px;
 }
 
@@ -1142,7 +1295,7 @@
   .about-page-container,
   .news-page-card,
   .workshop-detail-layout,
-  .department-page-container {
+  .department-page-main {
     grid-template-columns: 1fr;
   }
 
@@ -1150,7 +1303,8 @@
   .directory-grid,
     .official-documents-grid,
     .contact-page-container,
-    .directory-members-grid {
+    .directory-members-grid,
+    .department-support-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1190,7 +1344,8 @@
   .directory-grid,
   .official-documents-grid,
   .contact-page-container,
-  .directory-members-grid {
+  .directory-members-grid,
+  .department-support-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1292,7 +1447,7 @@
     gap: 20px;
   }
 
-  .department-page-container--banda .department-page-media {
+  .department-page-container--informatica .department-page-media {
     order: 0;
   }
 
@@ -1310,12 +1465,42 @@
     padding: 20px;
   }
 
+  .department-support-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
   .department-page-content h2 {
     font-size: 1.65rem;
   }
 
   .contact-page-card {
     min-height: 170px;
+  }
+
+  .mission-page-section {
+    padding: 40px 18px 56px;
+  }
+
+  .mission-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .mission-panel-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.45rem;
+  }
+
+  .mission-panel-content h2 {
+    font-size: 1.65rem;
+  }
+
+  .mission-panel-content p {
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
 
   .directory-card--link p,

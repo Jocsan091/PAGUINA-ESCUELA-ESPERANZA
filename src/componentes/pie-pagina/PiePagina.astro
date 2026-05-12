@@ -1,3 +1,13 @@
+---
+import { contactoEscuela, menu } from "../../data/siteData";
+
+const escuelaMenu = menu.find((item) => item.label === "Nuestra Escuela")?.children ?? [];
+const documentosMenu = menu.find((item) => item.label === "Documentos oficiales");
+const enlacesSecciones = menu.filter(
+  (item) => !["Inicio", "Nuestra Escuela", "Documentos oficiales"].includes(item.label)
+);
+---
+
 <footer class="site-footer">
   <div class="footer-top-line"></div>
 
@@ -12,22 +22,21 @@
     </div>
 
     <div class="footer-column">
-      <h4>Escuela</h4>
-      <a href="/quienes-somos/">Quienes somos</a>
-      <a href="/noticias/">Noticias</a>
+      <h4>Nuestra Escuela</h4>
+      {escuelaMenu.map((item) => <a href={item.href}>{item.label}</a>)}
     </div>
 
     <div class="footer-column">
-      <h4>Comunidad</h4>
-      <a href="/directivas/">Directivas</a>
-      <a href="/talleres/">Talleres</a>
+      <h4>Secciones</h4>
+      {enlacesSecciones.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href={documentosMenu?.href ?? "/documentos-oficiales/"}>Documentos oficiales</a>
     </div>
 
     <div class="footer-column">
       <h4>Contacto</h4>
-      <p><i class="fa-solid fa-location-dot"></i> 12 1/2 Sur, Talca, Chile</p>
-      <p><i class="fa-solid fa-phone"></i> (71) 224 4049</p>
-      <p><i class="fa-solid fa-envelope"></i> escuelaesperanza@daemtalca.cl</p>
+      <p><i class="fa-solid fa-location-dot"></i> {contactoEscuela.direccion}</p>
+      <p><i class="fa-solid fa-phone"></i> {contactoEscuela.telefono}</p>
+      <p><i class="fa-solid fa-envelope"></i> {contactoEscuela.correo}</p>
       <p><i class="fa-regular fa-clock"></i> Lunes a jueves: 08:30 - 17:00 hrs</p>
       <p><i class="fa-regular fa-clock"></i> Viernes: 08:30 - 14:00 hrs</p>
     </div>

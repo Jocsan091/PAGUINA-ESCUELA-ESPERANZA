@@ -15,11 +15,17 @@ import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
   <section class="about-page-section">
     <div class="about-page-detail about-page-detail--compact">
       <div class="directory-grid">
-        {directivas.map((directiva) => (
-          <a href={directiva.href} class="directory-card directory-card--link">
+        {directivas.map((directiva, index) => (
+          <a href={directiva.href} class:list={["directory-card", "directory-card--link", `directory-card--accent-${index + 1}`]}>
+            <span class="directory-card-icon">
+              <i class:list={["fa-solid", index === 0 ? "fa-user-tie" : index === 1 ? "fa-people-roof" : "fa-users"]}></i>
+            </span>
             <h2>{directiva.titulo}</h2>
             <p>{directiva.descripcion[0]}</p>
-            <i class="fa-solid fa-arrow-right"></i>
+            <span class="directory-card-action">
+              Ver detalle
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
           </a>
         ))}
       </div>

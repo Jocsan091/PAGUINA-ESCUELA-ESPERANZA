@@ -10,6 +10,7 @@ export const menu = [
     href: rutas.quienesSomos,
     children: [
       { label: "Quienes somos", href: rutas.quienesSomos },
+      { label: "Mision y vision", href: rutas.misionVision },
       { label: "Directiva", href: rutas.directivas },
       { label: "Programa de Integracion Escolar (PIE)", href: rutas.pie },
       { label: "Departamento de orientacion", href: rutas.orientacion },
@@ -126,9 +127,9 @@ export const contactoEscuela = {
   correo: "escuelaesperanza@daemtalca.cl",
   correoHref: "mailto:escuelaesperanza@daemtalca.cl",
   horario: "Lunes a jueves: 08:30 - 17:00 hrs · Viernes: 08:30 - 14:00 hrs",
-  direccion: "12 1/2 Sur, Talca, Chile",
+  direccion: "Calle 9 Nte. 2274, Talca, Chile",
   mapaSrc:
-    "https://www.google.com/maps?q=12%201%2F2%20Sur%2C%20Talca%2C%20Chile&output=embed"
+    "https://www.google.com/maps?q=Calle%209%20Nte.%202274%2C%20Talca%2C%20Chile&output=embed"
 };
 
 export const instagramInicio = {
@@ -149,13 +150,13 @@ export const accesosCircularesInicio = [
   {
     titulo: "Mision de la escuela",
     texto: textoTemporal,
-    href: "#mision",
+    href: rutas.misionVision,
     icono: "fa-compass"
   },
   {
     titulo: "Vision de la escuela",
     texto: textoTemporal,
-    href: "#vision",
+    href: rutas.misionVision,
     icono: "fa-eye"
   }
 ];
@@ -167,3 +168,20 @@ export const seccionesInstitucionalesPagina = [
   { titulo: "Vision de la escuela", id: "vision" },
   ...documentosOficiales
 ];
+
+export const misionVisionDetalle = {
+  subtitulo: "Nuestra Escuela",
+  titulo: "Mision y vision",
+  secciones: [
+    {
+      titulo: "Mision de la escuela",
+      icono: "fa-compass",
+      texto: [textoTemporal, textoTemporal]
+    },
+    {
+      titulo: "Vision de la escuela",
+      icono: "fa-eye",
+      texto: [textoTemporal, textoTemporal]
+    }
+  ]
+};

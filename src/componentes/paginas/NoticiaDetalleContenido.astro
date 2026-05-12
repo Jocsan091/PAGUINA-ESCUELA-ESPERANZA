@@ -6,7 +6,6 @@ import {
   getGalleryImages,
   getNewsDate,
   getNewsImage,
-  getNewsSummary,
   getYoutubeEmbedUrl,
   type Noticia
 } from "../../lib/noticias";
@@ -26,7 +25,6 @@ const youtubeEmbedUrl = getYoutubeEmbedUrl(noticia.data.video_url);
     <div class="internal-hero-content">
       <span class="internal-kicker">Noticias</span>
       <h1>{noticia.data.title}</h1>
-      <p>{getNewsSummary(noticia, 180)}</p>
       <AccionesPaginaInterna sectionLabel="Todas las noticias" sectionHref="/noticias/" sectionIcon="fa-newspaper" />
     </div>
   </section>

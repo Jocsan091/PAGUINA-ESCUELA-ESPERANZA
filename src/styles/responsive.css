@@ -242,19 +242,21 @@
   }
 
   .features-container--centered {
-    grid-template-columns: minmax(0, 360px);
+    grid-template-columns: 1fr;
   }
 
   .feature-circle-card {
-    padding: 4px 10px;
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 14px;
+    padding: 16px;
   }
 
   .feature-circle {
-    width: 104px;
-    height: 104px;
+    width: 68px;
+    height: 68px;
     border-width: 4px;
-    font-size: 2.35rem;
-    margin-bottom: 14px;
+    font-size: 1.45rem;
+    margin: 0;
   }
 
   .feature-circle-card h3 {
@@ -487,9 +489,9 @@
   }
 
   .feature-circle {
-    width: 92px;
-    height: 92px;
-    font-size: 2rem;
+    width: 58px;
+    height: 58px;
+    font-size: 1.25rem;
   }
 
   .feature-circle-card h3 {

@@ -1,6 +1,7 @@
 export const rutas = {
   inicio: "/",
   quienesSomos: "/quienes-somos/",
+  misionVision: "/mision-vision/",
   noticias: "/noticias/",
   documentos: "/documentos-oficiales/",
   pie: "/pie/",

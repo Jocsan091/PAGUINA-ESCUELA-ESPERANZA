@@ -1,0 +1,33 @@
+---
+import { misionVisionDetalle } from "../../data/siteData";
+import AccionesPaginaInterna from "./AccionesPaginaInterna.astro";
+---
+
+<main class="internal-page">
+  <section class="internal-hero">
+    <div class="internal-hero-content">
+      <span class="internal-kicker">{misionVisionDetalle.subtitulo}</span>
+      <h1>{misionVisionDetalle.titulo}</h1>
+      <AccionesPaginaInterna sectionHref="/" sectionLabel="Inicio" sectionIcon="fa-house" />
+    </div>
+  </section>
+
+  <section class="mission-page-section">
+    <div class="mission-page-container">
+      {misionVisionDetalle.secciones.map((seccion) => (
+        <article class="mission-panel">
+          <div class="mission-panel-icon">
+            <i class={`fa-solid ${seccion.icono}`}></i>
+          </div>
+
+          <div class="mission-panel-content">
+            <h2>{seccion.titulo}</h2>
+            {seccion.texto.map((parrafo) => (
+              <p>{parrafo}</p>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</main>
