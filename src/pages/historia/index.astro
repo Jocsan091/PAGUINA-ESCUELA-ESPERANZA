@@ -1,35 +1,25 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import PaginaInformativaContenido from "../../componentes/paginas/PaginaInformativaContenido.astro";
-import { textoTemporal } from "../../data/siteData";
 ---
 
 <MainLayout title="Historia | Escuela Esperanza">
   <PaginaInformativaContenido
     kicker="Nuestra Escuela"
     titulo="Historia"
-    subtitulo="Trayectoria de la Escuela Esperanza"
+    subtitulo="Historia"
     imagen="/images/slide1.png"
+    variante="historia"
     descripcion={[
-      textoTemporal,
-      "Este espacio debe presentar los principales hitos de la escuela, su origen, crecimiento y momentos importantes para la comunidad educativa."
+      "La Escuela Esperanza nace a la vida en la década del 60. Siendo el 06 de noviembre del año 1963 que se menciona como día del inicio de sus funciones de manera oficial.",
+      "En sus comienzos, la Escuela Esperanza atendió solo dos cursos 1° y 2° básico adquiriendo la modalidad bipersonal.",
+      "La Unidad Educativa se levantó en el sector oriente de la ciudad de Talca, transformándose en una real alternativa educacional municipal para la gran cantidad de familias que alberga este sector.",
+      "De manera progresiva y debido a la demanda de matrícula solicitada por la comunidad, se ha aumentado en la cantidad de cursos, llegando en el año 1995 a tener nivel prebásico y básico completo.",
+      "Durante el año 1997 una nueva innovación permitió el acercamiento de la comunidad educativa al uso de la tecnología, por medio del proyecto Enlaces, ofreciendo a sus alumnos la posibilidad de acercarse al conocimiento y construir nuevos aprendizajes con el apoyo de las TIC.",
+      "En noviembre del año 2004 la escuela se traslada a un moderno edificio, con las dependencias necesarias para la atención de niños y niñas de la comunidad.",
+      "En el año 2008 la Escuela Esperanza toma un nuevo rumbo, pues se cambió en un 90% el personal docente y directivo, con el fin de desarrollar una gestión que permitiera captar matrícula, mejorar el aprendizaje y rendimiento de los estudiantes y sobretodo el desarrollo de habilidades sociales; propósito que se ha ido logrando paulatinamente.",
+      "Hoy contamos con una infraestructura y recursos que permitir desarrollar nuestro Proyecto Educativo Institucional. Cabe destacar que el entorno donde se encuentra inserta la escuela presenta un nivel de vulnerabilidad alto, que se refleja en dificultades socioculturales, socioeconómicas, sociofamiliares y entorno de alta complejidad."
     ]}
-    bloques={[
-      {
-        titulo: "Origen institucional",
-        icono: "fa-landmark",
-        texto: "Resena sobre la fundacion del establecimiento, contexto del sector y primeras etapas de funcionamiento."
-      },
-      {
-        titulo: "Hitos relevantes",
-        icono: "fa-timeline",
-        texto: "Principales cambios, logros, ampliaciones, reconocimientos o acontecimientos que marcaron a la escuela."
-      },
-      {
-        titulo: "Identidad comunitaria",
-        icono: "fa-people-group",
-        texto: "Elementos que explican como la escuela se vincula con sus estudiantes, familias y territorio."
-      }
-    ]}
+    bloques={[]}
   />
 </MainLayout>

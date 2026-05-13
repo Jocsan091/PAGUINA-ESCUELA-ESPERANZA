@@ -11,12 +11,15 @@ interface Props {
   kicker: string;
   titulo: string;
   subtitulo: string;
-  imagen: string;
+  imagen?: string;
   descripcion: string[];
   bloques: Bloque[];
+  variante?: "normal" | "historia";
 }
 
-const { kicker, titulo, subtitulo, imagen, descripcion, bloques } = Astro.props;
+const { kicker, titulo, subtitulo, imagen, descripcion, bloques, variante = "normal" } = Astro.props;
+const descripcionLateral = variante === "historia" ? descripcion.slice(0, 4) : descripcion;
+const descripcionInferior = variante === "historia" ? descripcion.slice(4) : [];
 ---
 
 <main class="internal-page">
@@ -30,27 +33,48 @@ const { kicker, titulo, subtitulo, imagen, descripcion, bloques } = Astro.props;
 
   <section class="info-page-section">
     <div class="info-page-container">
-      <article class="info-page-intro">
+      <article class:list={["info-page-intro", { "info-page-intro--story": variante === "historia" }]}>
         <div class="info-page-copy">
           <span>{kicker}</span>
           <h2>{subtitulo}</h2>
-          {descripcion.map((parrafo) => (
-            <p>{parrafo}</p>
-          ))}
+
+          {variante === "historia" ? (
+            <>
+              <div class="info-page-story-top">
+                <div>
+                  {descripcionLateral.map((parrafo) => (
+                    <p>{parrafo}</p>
+                  ))}
+                </div>
+
+                {imagen && <img class="info-page-story-image" src={imagen} alt={titulo} />}
+              </div>
+
+              {descripcionInferior.map((parrafo) => (
+                <p>{parrafo}</p>
+              ))}
+            </>
+          ) : (
+            descripcionLateral.map((parrafo) => (
+              <p>{parrafo}</p>
+            ))
+          )}
         </div>
 
-        <img src={imagen} alt={titulo} />
+        {variante !== "historia" && imagen && <img src={imagen} alt={titulo} />}
       </article>
 
-      <div class="info-page-grid">
-        {bloques.map((bloque) => (
-          <article class="info-page-card">
-            <span><i class={`fa-solid ${bloque.icono}`}></i></span>
-            <h3>{bloque.titulo}</h3>
-            <p>{bloque.texto}</p>
-          </article>
-        ))}
-      </div>
+      {bloques.length > 0 && (
+        <div class="info-page-grid">
+          {bloques.map((bloque) => (
+            <article class="info-page-card">
+              <span><i class={`fa-solid ${bloque.icono}`}></i></span>
+              <h3>{bloque.titulo}</h3>
+              <p>{bloque.texto}</p>
+            </article>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 </main>
