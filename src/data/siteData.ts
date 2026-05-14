@@ -93,7 +93,37 @@ export const talleres = [
     slug: "programacion-robotica",
     href: `${rutas.talleres}programacion-robotica/`,
     imagen: "/images/slide3.png",
-    descripcion: [textoTemporal, textoTemporal]
+    descripcion: [
+      "El taller de programación y robótica, utilizamos plataformas de Ofimática para que nuestros alumnos puedan comprender su uso y la importancia en su enseñanza en general, utilizamos Code.org el cual es una plataforma que por bloques nuestros alumnos aprenden a programar además de revisar código de los trabajos que realizan, utilizamos nuestros Robots LEGO Y VEX.",
+      "Nuestros alumnos participan de las ferias de Robótica realizadas en distintos establecimientos de la región obteniendo resultados enriquecedores, conociendo proyectos de otros colegios, liceos y universidades , aportando conocimientos y adquiriendo experiencia, además de participar de concursos de robot’s etc. Con los cuales han tenido buenas experiencias.",
+      "Los alumnos utilizan software el cual funciona con bloques en el uso de robots conocen su mecanismo y armado de piezas, entienden su lógica y funcionamiento, además de instalar en Tablet los programas necesarios para su funcionamiento en dispositivos.",
+      "Los alumnos aprenden lo esencial en programación como lo es diagramas de flujos pseudocodigo con software libre Pseint.",
+      "Utilizamos Arduino  que  es una plataforma de hardware libre basada en una sencilla placa con un microcontrolador y un entorno de desarrollo (IDE) que permite escribir código y cargarlo directamente en la placa el cual ofrece un entorno activo y práctico ideal para desarrollar habilidades STEAM (ciencia, tecnología, ingeniería, arte y matemáticas).",
+      "Los Alumnos aprenden a construir y programar robots, mejorando su pensamiento lógico, creatividad y capacidad de resolución de problemas de manera divertida.",
+      "En resumen, es un espacio que transforma la tecnología de un concepto abstracto a herramientas tangible y creativa para niños y adolescentes de nuestra escuela Esperanza."
+    ],
+    aspectosClaves: [
+      {
+        titulo: "Enfoque Práctico",
+        texto: "Se basa en \"aprender haciendo\" (learning by doing), donde los estudiantes construyen modelos y programan sensores para darles vida, lo que facilita la comprensión de conceptos abstractos."
+      },
+      {
+        titulo: "Aprendizaje Progresivo",
+        texto: "Las actividades suelen ir desde la manipulación motriz fina hasta la programación en bloque o textual de mayor complejidad."
+      },
+      {
+        titulo: "Habilidades Blandas",
+        texto: "Fomentan el trabajo colaborativo, la paciencia y la constancia al enfrentar retos técnicos."
+      },
+      {
+        titulo: "Impacto Educativo",
+        texto: "Estudios sugieren que la participación mejora la motivación y puede elevar el rendimiento académico en asignaturas relacionadas."
+      },
+      {
+        titulo: "Temáticas Comunes",
+        texto: "Uso de programación visual intuitiva (ej. CODE), diseño de mecanismos, sensores y también, introducción a la impresión 3D."
+      }
+    ]
   },
   {
     titulo: "Taller de musica",

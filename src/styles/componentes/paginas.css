@@ -601,6 +601,40 @@
   margin-top: 12px;
 }
 
+.workshop-key-section {
+  margin-top: 28px;
+}
+
+.workshop-key-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.workshop-key-card {
+  min-height: 210px;
+  padding: 22px;
+  background: var(--superficie);
+  border: 1px solid var(--borde-suave);
+  border-top: 6px solid var(--verde-principal);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px var(--sombra-suave);
+}
+
+.workshop-key-card h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.workshop-key-card p {
+  color: var(--texto);
+  line-height: 1.65;
+}
+
 .department-page-section,
 .contact-page-section {
   padding: 70px 20px 90px;
@@ -1732,7 +1766,8 @@
     .directory-members-grid,
     .department-support-grid,
     .info-page-grid,
-    .seals-grid {
+    .seals-grid,
+    .workshop-key-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1865,6 +1900,24 @@
   .workshop-detail-layout img,
   .department-page-media img {
     height: 220px;
+  }
+
+  .workshop-key-section {
+    margin-top: 20px;
+  }
+
+  .workshop-key-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .workshop-key-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .workshop-key-card h3 {
+    font-size: 1.22rem;
   }
 
   .department-page-section,

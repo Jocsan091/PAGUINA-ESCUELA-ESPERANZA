@@ -44,6 +44,24 @@ const { taller } = Astro.props;
           </div>
         </div>
       </section>
+
+      {taller.aspectosClaves && (
+        <section class="workshop-key-section">
+          <div class="pie-staff-heading">
+            <span>Aspectos Claves</span>
+            <h2>{taller.titulo}</h2>
+          </div>
+
+          <div class="workshop-key-grid">
+            {taller.aspectosClaves.map((aspecto) => (
+              <article class="workshop-key-card">
+                <h3>{aspecto.titulo}</h3>
+                <p>{aspecto.texto}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   </section>
 </main>
