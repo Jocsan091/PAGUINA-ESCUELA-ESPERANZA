@@ -3,19 +3,19 @@
     {
       "nombre": "Gianella Castillo Faúndez",
       "cargo": "Presidenta",
-      "imagen": "/images/logo-escuela.png",
+      "imagen": "/images/perfiles/gianalla-cvastillo-presidenta.jpeg",
       "descripcion": "La presidente es quien representa al centro de estudiantes frente a los profesores, directivos y compañeros. Se encarga de dirigir las reuniones, organizar actividades, escuchar las opiniones del grupo y motivar la participación de todos para mejorar la convivencia y el trabajo en equipo."
     },
     {
       "nombre": "Belén Rivas Mateluna",
       "cargo": "Secretaria",
-      "imagen": "/images/logo-escuela.png",
+      "imagen": "/images/perfiles/isabella-torres-secretaria-.jpeg",
       "descripcion": "La secretaria tiene la función de escribir y guardar los acuerdos de las reuniones, registrar la asistencia y mantener ordenada la información importante del centro de estudiantes. Además, ayuda a comunicar avisos y apoyar la organización de las actividades."
     },
     {
       "nombre": "Isabella Torres Torres",
       "cargo": "Tesorera",
-      "imagen": "/images/logo-escuela.png",
+      "imagen": "/images/perfiles/belen-rivas-tesorera.jpeg",
       "descripcion": "La tesorera es la persona encargada de administrar el dinero del centro de estudiantes. Lleva un registro de los ingresos y gastos, cuidar los fondos, guardar comprobantes y entregar información clara sobre el dinero disponible para actividades y necesidades del grupo."
     }
   ]
