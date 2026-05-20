@@ -52,7 +52,7 @@ export const slides = [
   },
   {
     image: "/images/slide5.jpeg",
-    title: "Donde Los Sueños Comienzann",
+    title: "Donde Los Sueños Comienzan",
     subtitle: "Escuela Esperanza",
     extra: "",
     button: "Leer mas",
